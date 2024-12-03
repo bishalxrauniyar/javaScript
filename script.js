@@ -170,6 +170,9 @@ if(guess==num){
     var area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
     console.log(area);
 
+
+
+    
     //Write a JavaScript program to calculate the days left before Christmas.
     var today = new Date();
     var cmas = new Date(today.getFullYear(),11,25);

@@ -1,5 +1,21 @@
-// document.getElementById("counter").innerHTML = count;
-// var count = 0;
+
+// counter app
+var count = 0;
+document.getElementById("counter").innerHTML = count;
+increment.onclick = function() {
+    count += 1;
+    document.getElementById("counter").innerHTML = count;
+}
+decrement.onclick = function() {
+    if(count>0){
+    count -= 1;
+    document.getElementById("counter").innerHTML = count;
+    }
+}
+reset.onclick = function() {
+    count = 0;
+    document.getElementById("counter").innerHTML = count;
+}
 
 
 
@@ -91,10 +107,67 @@ console.log(today);
 today = mm + '/' + dd + '/' + yyyy;
 console.log(today);
 
+
 // Format the date as dd-mm-yyyy and log it
 today = dd + '-' + mm + '-' + yyyy;
 console.log(today);
 
+
 // Format the date as dd/mm/yyyy and log it
 today = dd + '/' + mm + '/' + yyyy;
 console.log(today); 
+
+
+
+
+
+//guess the number game (between 1 and 10)
+var num=math.ceil(math.random()*10);
+console.log(num);
+var guess=prompt('Guess the number between 1 and 10');
+if(guess==num){
+    alert('Congratulations! You guessed the correct number.');
+ } else
+ console.log('Sorry. The number was ' + num + '.');
+
+ 
+ 
+ 
+ 
+ //check if the year 1st jan is a sunday or not
+
+ for(var year=2014;year<=2050;year++){
+    var d = new Data(year,0,1);
+    if(d.getDay()===0){
+        console.log("1st jan is sunday in year "+year)
+    }
+ }
+
+
+
+
+ //rotate string from left to right
+
+ var str ="bishal";
+ var n=2;
+    var left= str.substring(0,n);
+    var right= str.substring(n,str.length);
+    console.log(right+left);
+
+
+    //check if the year given is a leap year or not
+    var year = prompt('Enter the year');
+    function leapyear(year){
+        return (year%100===0)?(year%400===0):(year%4===0);
+    }
+    console.log(leapyear(year));
+   
+
+
+    //calculate the area of a triangle
+    var side1 = 5;
+    var side2 = 6;
+    var side3 = 7;
+    var s = (side1+side2+side3)/2;
+    var area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+    console.log(area);

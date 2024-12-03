@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Counter App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Counter App</h1>
     <p>Counter: <span id="counter">0</span></p>
     <button id="increment">Increment</button>
     <button id="decrement">Decrement</button>
     <button id="reset">Reset</button>
-</body>
+
+    <!-- program to calculate multiplication and division of two numbers -->
+    <h1>Calculator</h1>
+    <input type="number" id="num1" placeholder="Enter first number" />
+    <input type="number" id="num2" placeholder="Enter second number" />
+    <input type="button" onClick="multiply()" value="Multiply" />
+    <input type="button" onClick="divide()" value="Divide" />
+    <p>The result is</p>
+    <p id="result"></p>
+
+    <!-- Program to Convert Celcius To Fehrenheit or Fehrenheit to Celcius -->
+    <h1>Program to Convert Celcius To Fehrenheit</h1>
+    <input type="number" id="celciusORfeherenheit" placeholder="Enter Temp" />
+    <input type="button" onClick="calculateF()" value="CalculateF" />
+    <input type="button" onClick="calculateC()" value="CalculateC" />
+    <p id="result"></p>
+    <script>
+      function calculateF() {
+        var celciusORfeherenheit = document.getElementById(
+          "celciusORfeherenheit"
+        ).value;
+        var fehrenheit = celciusORfeherenheit * (9 / 5) + 32;
+        document.getElementById("result").innerHTML = fehrenheit;
+      }
+      function calculateC() {
+        var celciusORfeherenheit = document.getElementById(
+          "celciusORfeherenheit"
+        ).value;
+        var celcius = ((celciusORfeherenheit - 32) * 5) / 9;
+        document.getElementById("result").innerHTML = celcius;
+      }
+    </script>
+  </body>
 </html>

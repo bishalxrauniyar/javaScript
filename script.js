@@ -538,3 +538,180 @@ function fifteen(x, y) {
   return x == 15 || y == 15 || x + y == 15 || x - y == 15;
 }
 console.log(fifteen(7, 8));
+
+//program to check two given non-negative integers if one (not both) is a multiple of 7 or 11.
+
+function multiple7or11(x, y) {
+  if ((x % 7 == 0 && y % 11 != 0) || (y % 7 == 0 && x % 11 != 0)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(multiple7or11(7, 14)); // true
+console.log(multiple7or11(14, 22)); // false
+console.log(multiple7or11(21, 22)); // true
+console.log(multiple7or11(14, 77)); // false
+
+//JavaScript program to check whether a given number exists in the range 40..10000.
+function check40_10000(n) {
+  return n >= 40 && n <= 10000;
+}
+console.log(check40_10000(40)); // true
+console.log(check40_10000(10)); // false
+
+//program to reverse a given string.
+
+// 1st approach
+function reverse(str) {
+  let reversed = ""; // Initialize an empty string to store the reversed string
+  for (i = str.length - 1; i >= 0; i--) {
+    reversed += str.charAt(i); // Append the character at index i to the reversed string
+  }
+  return reversed;
+}
+console.log(reverse("BISHAL")); // "LAHSIB"
+console.log(reverse("JavaScript")); // "tpircSavaJ"
+
+// 2nd approach
+function reverse(str) {
+  return str.split("").reverse();
+}
+console.log(reverse("BISHAL")); // "LAHSIB"
+
+// program to replace every character in a given string with the character following it in the alphabet
+function transform(str) {
+  var newString = "";
+  for (var i = 0; i < str.length; i++) {
+    if (96 < str.charCodeAt(i) && str.charCodeAt(i) < 123) {
+      newString += String.fromCharCode(str.charCodeAt(i) + 1);
+    }
+    if (64 < str.charCodeAt(i) && str.charCodeAt(i) < 91) {
+      newString += String.fromCharCode(str.charCodeAt(i) + 1);
+    }
+  }
+  return newString;
+}
+console.log(transform("BISHAL")); // "CJTIAM"
+console.log(transform("JavaScript")); // "KbqfUbTqbs"
+
+//program to capitalize the first letter of each word in a given string.
+function capitalize(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+console.log(capitalize("bishal rauniyar")); // "Bishal Rauniyar"
+console.log(capitalize("javascript programming")); // "Javascript Programming"
+
+//2nd approach
+
+function cap(str) {
+  var words = str.split(" ");
+  var newString = words
+    .map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+  return newString;
+}
+
+console.log(cap("bishal rauniyar"));
+// "Bishal Rauniyar"
+console.log(cap("javascript programming"));
+
+//application that transforms a provided numerical value into hours and minutes.
+
+function calculate(a) {
+  return Math.ceil(a / 60) - 1 + " Hours " + (a % 60) + " Min";
+}
+console.log(calculate(120));
+console.log(calculate(245));
+
+//JavaScript program to convert letters of a given string alphabetically. split sort join
+function alphabet_sort(str) {
+  return str.split("").sort().join("");
+}
+console.log(alphabet_sort("BISHAL")); // "ABHILS"
+
+function ab_Check(str) {
+  // Use regular expressions to check if the pattern 'a...b' or 'b...a' exists in the given string
+  // The test() method returns true if the pattern is found, otherwise, it returns false
+  return /a...b/.test(str) || /b...a/.test(str);
+}
+
+// Log the result of calling ab_Check with the given strings to the console
+console.log(ab_Check("ChainsBreak"));
+
+//this code will not work if the characters are small or capital letter
+
+//making it work for every possible combination of a and b
+function ab_Check(str) {
+  // Use regular expressions to check if the pattern 'a...b' or 'b...a' exists in the given string
+  // The test() method returns true if the pattern is found, otherwise, it returns false
+  return (
+    /a...b/.test(str) ||
+    /b...a/.test(str) ||
+    /A...B/.test(str) ||
+    /B...A/.test(str) ||
+    /a...B/.test(str) ||
+    /b...A/.test(str) ||
+    /A...b/.test(str) ||
+    /B...a/.test(str)
+  );
+}
+
+// Log the result of calling ab_Check with the given strings to the console
+console.log(ab_Check("hainsBreak"));
+console.log(ab_Check("Chainsbreak"));
+console.log(ab_Check("ChainsBreak"));
+
+//program to count the number of vowels in a given string.
+function countVowels(str) {
+  var count = 0;
+  var vowels = "aeiouAEIOU";
+  for (var i = 0; i < str.length; i++) {
+    if (vowels.indexOf(str[i]) !== -1) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels("BISHAL")); // 2
+console.log(countVowels("JavaScript")); // 3
+
+//program to check whether a given string contains an equal number of p's and t's
+function equal_pt(str) {
+  var countp = 0;
+  var countt = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === "p") {
+      countp++;
+    }
+    if (str[i] === "t") {
+      countt++;
+    }
+  }
+  return countp == countt;
+}
+console.log(equal_pt("javascript")); // true
+
+//program to divide two positive numbers and return the result as string with properly formatted commas.
+function divide(a, b) {
+  if (b === 0) {
+    return "Cannot divide by zero.";
+  }
+  return (a / b).toLocaleString();
+}
+console.log(divide(1000000, 10)); // "100,000"
+
+//program to create one string of specified copies (positive numbers) of a given string.
+function string_copies(str, n) {
+  // Check if n is less than 0
+  if (n < 0)
+    // Return false if n is negative
+    return false;
+  // Use the repeat method to replicate the string 'n' times
+  else return str.repeat(n);
+}

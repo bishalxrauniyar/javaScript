@@ -715,3 +715,126 @@ function string_copies(str, n) {
   // Use the repeat method to replicate the string 'n' times
   else return str.repeat(n);
 }
+// program to create an updated string of 4 copies of the last 3 characters of a given original string. The string length must be 3 and above.
+function string_copies(str) {
+  if (str.length < 3) {
+    return false;
+  } else {
+    return str.substring(str.length - 3).repeat(4);
+  }
+}
+console.log(string_copies("JavaScript")); // "iptiptiptipt"
+
+//program to extract the first half of a even string.
+function first_half(str) {
+  if (str.length % 2 == 0) {
+    return str.substring(0, str.length / 2);
+  }
+  return str;
+}
+
+// remove first and last character of the string
+function first_last(str) {
+  return str.substring(1, str.length - 1);
+}
+console.log(first_last("Bishal")); // "isha"
+
+//program to concatenate two strings except for their first character
+function concat(str1, str2) {
+  return str1.substring(1, str1.length) + str2.substring(1, str2.length);
+}
+console.log(concat("bishal", "rauniyar"));
+console.log(concat("javascript", "programming"));
+
+// program to move the last three characters to the start of a given string. The string length must be greater than or equal to three.
+function move(str) {
+  if (str.length >= 3) {
+    return (
+      str.substring(str.length - 3, str.length) +
+      str.substring(0, str.length - 3)
+    );
+  }
+}
+console.log(move("rauniyar"));
+
+// program to create a string using the middle three characters of a given string of odd length. The string length must be greater than or equal to three.
+function middle_three(str) {
+  if (str.length % 2 !== 0) {
+    return str.substring(str.length / 2 - 1, str.length / 2 + 2);
+  }
+}
+
+//program to concatenate two strings and return the result. If the length of the strings does not match, then remove the characters from the longer string.
+function concat(str1, str2) {
+  if (str1.length > str2.length) {
+    return str1.substring(0, str2.length) + str2;
+  } else if (str2.length > str1.length) {
+    return str1 + str2.substring(0, str1.length);
+  } else {
+    return str1 + str2;
+  }
+}
+console.log(concat("Bishal", "Rauniyar"));
+console.log(concat("javascript", "programming"));
+console.log(concat("Gobar", "Dhann"));
+
+// program to test whether a string ends with "Script". The string length must be greater than or equal to 6.
+function checkscript(str) {
+  if (str.length >= 6) {
+    if (str.substring(str.length - 6, str.length) === "Script") {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(checkscript("JavaScript"));
+console.log(checkscript("TypeScript"));
+console.log(checkscript("PythonScript"));
+console.log(checkscript("Script"));
+
+//program to display the city name if the string begins with "Los" or "New" otherwise return blank.
+
+function check(str) {
+  if (str.length >= 3) {
+    if (str.substring(0, 3) === "New" || str.substring(0, 3) === "Los") {
+      return str;
+    }
+  }
+  return "";
+}
+console.log(check("NewYork"));
+console.log(check("LosAngels"));
+console.log(check("Nepal"));
+
+//  program to create a new string from a given string. This program removes the first and last characters of the string if the first or last character is 'P'. Return the original string if the condition is not satisfied.
+function removeP(str) {
+  if (str.substring(0, 1) === "P" || str.substring(str.length - 1) === "P") {
+    return str.substring(1, str.length - 1);
+  }
+  return str;
+}
+
+console.log(removeP("Panda")); // "and"
+console.log(removeP("Pineapple")); // "ineappl"
+console.log(removeP("Apple")); // "Apple"
+
+// program to create a new string using the first and last n characters from a given string. The string length must be larger than or equal to n.
+function createnew(str, n) {
+  var newstring;
+  if (str.length >= n) {
+    newstring = str.substring(0, n) + str.substring(str.length - n, str.length);
+  }
+  return newstring;
+}
+console.log(createnew("bishal", 2)); // "bial"
+console.log(createnew("javascript", 3)); // "javipt"
+
+// program to compute the sum of three elements of a given array of integers of length 3.
+function sum_three(nums) {
+  // Return the sum of the three numbers using array indexing
+  return nums[0] + nums[1] + nums[2];
+}
+// Call the function with different arrays and log the results to the console
+console.log(sum_three([10, 32, 20]));
+console.log(sum_three([5, 7, 9]));
+console.log(sum_three([0, 8, -11]));

@@ -1899,3 +1899,110 @@ function smallestRoundNumber(num) {
 console.log(smallestRoundNumber(592)); // 600
 console.log(smallestRoundNumber(590)); // 600
 console.log(smallestRoundNumber(640)); // 640
+
+//a JavaScript program to find the smallest prime number strictly greater than a given number.
+function nextPrime(num) {
+  num++;
+  while (!isPrime(num)) {
+    num++;
+  }
+  return num;
+}
+
+console.log(nextPrime(3)); // 5
+console.log(nextPrime(7)); // 11
+console.log(nextPrime(10)); // 11
+
+//JavaScript program to find the number of even digits in a given integer.
+function countEvenDigits(num) {
+  return num
+    .toString()
+    .split("")
+    .filter((digit) => digit % 2 === 0).length;
+}
+console.log(countEvenDigits(12345)); // 2
+console.log(countEvenDigits(24680)); // 5
+console.log(countEvenDigits(13579)); // 0
+
+//a JavaScript program to create an array of prefix sums of the given array.
+// In computer science, the prefix sum, cumulative sum, inclusive scan, or simply scan of a sequence of numbers x0, x1, x2, ... is a second sequence of numbers y0, y1, y2, ..., the sums of prefixes of the input sequence:
+// y0 = x0
+// y1 = x0 + x1
+// y2 = x0 + x1+ x2
+// y3 = x0 + x1 + x2 + x3
+function prefixSums(arr) {
+  let prefixSum = 0;
+  return arr.map((num) => (prefixSum += num));
+}
+console.log(prefixSums([1, 2, 3, 4, 5])); // [1, 3, 6, 10, 15]
+
+// a JavaScript program to find all distinct prime factors of a given integer.
+function primeFactors(n) {
+  let factors = [];
+  for (let i = 2; i <= n; i++) {
+    while (n % i === 0) {
+      factors.push(i);
+      n /= i;
+    }
+  }
+  return [...new Set(factors)];
+}
+console.log(primeFactors(100)); // [2, 5]
+console.log(primeFactors(101)); // [101]
+
+//a JavaScript program to check whether a given fraction is proper or not.
+// Note: There are two types of common fractions, proper or improper. When the numerator and the denominator are both positive, the fraction is called proper if the numerator is less than the denominator, and improper otherwise.
+function properFraction(numerator, denominator) {
+  return numerator < denominator;
+}
+console.log(properFraction(1, 2)); // true
+console.log(properFraction(2, 2)); // false
+
+// a JavaScript program to change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+function changeLetters(str) {
+  return str
+    .split("")
+    .map((char) =>
+      char === char.toLowerCase()
+        ? String.fromCharCode(219 - char.charCodeAt(0))
+        : char
+    )
+    .join("");
+}
+
+console.log(changeLetters("abc")); // "zyx"
+console.log(changeLetters("xyz")); // "cba"
+
+//JavaScript program to remove all characters from a given string that appear more than once.
+function removeDuplicates(str) {
+  return str
+    .split("")
+    .filter((char, index, arr) => arr.indexOf(char) === arr.lastIndexOf(char))
+    .join("");
+}
+console.log(removeDuplicates("abc")); // "abc"
+console.log(removeDuplicates("abca")); // "bc"
+
+//JavaScript program to replace the first digit in a string (should have at least one digit) with the $ character.
+function replaceFirstDigit(str) {
+  return str.replace(/[0-9]/, "$");
+}
+console.log(replaceFirstDigit("abc123")); // "abc$23"
+console.log(replaceFirstDigit("abc")); // "abc"
+
+// JavaScript program to test whether a given integer is greater than 15 and return the given number, otherwise return 15.
+function testNum(n) {
+  return n > 15 ? n : 15;
+}
+console.log(testNum(16)); // 16
+console.log(testNum(10)); // 15
+
+//a JavaScript program to reverse the bits of a given 16-bit unsigned short integer.
+function reverseBits(n) {
+  return parseInt(
+    n.toString(2).padStart(16, "0").split("").reverse().join(""),
+    2
+  );
+}
+console.log(reverseBits(1)); // 32768
+console.log(reverseBits(2)); // 16384

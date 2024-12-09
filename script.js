@@ -838,3 +838,1064 @@ function sum_three(nums) {
 console.log(sum_three([10, 32, 20]));
 console.log(sum_three([5, 7, 9]));
 console.log(sum_three([0, 8, -11]));
+
+// program to check whether 1 appears in the first or last position of a given array of integers. The array length must be larger than or equal to 1.
+function checkone(array) {
+  if (array.length >= 1) {
+    return array[0] === 1 || array[array.length - 1] === 1;
+  }
+  return false;
+}
+
+console.log(checkone([5, 6, 1])); // true
+console.log(checkone([1, 6, 5])); // true
+console.log(checkone([5, 6, 5])); // false
+console.log(checkone([1])); // true
+
+//  program to check whether the first and last elements are the same in a given array of integers of length 3.
+function samefirstlast(array) {
+  if (array[0] === array[array.length - 1]) {
+    return true;
+  } else return false;
+}
+console.log(samefirstlast([1, 2, 0])); // false
+console.log(samefirstlast([1, 2, 1])); // true
+console.log(samefirstlast([10, 20, 30])); // false
+console.log(samefirstlast([20, 20, 20])); // true([10, 20, 30, 10]));
+console.log(samefirstlast([20, 20, 20])); // true([20, 20, 20]));
+
+//program to reverse the elements of a given array of integers of length 3.
+function reversearray(array) {
+  return [array[2], array[1], array[0]];
+}
+console.log(reversearray([5, 6, 7]));
+console.log(reversearray([10, 20, 30]));
+console.log(reversearray([1, 2, 3]));
+
+//program to reverse the elements of a given array of integers of length 3.
+// 1st approach
+function reversearray(array) {
+  return [array[2], array[1], array[0]];
+}
+console.log(reversearray([5, 6, 7]));
+
+// 2nd approach
+function reversearray(array) {
+  return array.reverse();
+}
+console.log(reversearray([5, 6, 7]));
+
+// 3rd approach usng map
+function reversearray(array) {
+  return array.map((elements, i, arr) => arr[arr.length - 1 - i]);
+}
+console.log(reversearray([5, 6, 7]));
+
+// program to find the largest value between the first and last elements and set all the other elements to that value. Display the updated array.
+//1st approach
+function replaceupdate(array) {
+  var newArray = [];
+  if (array[0] > array[array.length - 1]) {
+    for (let i = 0; i < array.length; i++) {
+      newArray[i] = array[0];
+    }
+  } else {
+    if (array[0] > array[array.length - 1]) {
+      newArray[i] = array[array.length - 1] = newarray[i];
+    }
+  }
+  return newArray;
+}
+console.log(replaceupdate([5, 2, 3]));
+
+//2nd approach
+function all_max(nums) {
+  // Determine the maximum value between the first and third elements using a ternary operator
+  var max_val = nums[0] > nums[2] ? nums[0] : nums[2];
+
+  // Set all elements in the array to the determined maximum value
+  nums[0] = max_val;
+  nums[1] = max_val;
+  nums[2] = max_val;
+
+  // Return the modified array
+  return nums;
+}
+
+// Call the function with sample arguments and log the results to the console
+console.log(all_max([20, 30, 40])); // Output: [40, 40, 40]
+console.log(all_max([-7, -9, 0])); // Output: [0, 0, 0]
+console.log(all_max([12, 10, 3])); // Output: [12, 12, 12]
+
+// 3rd approach
+function replaceupdate(array) {
+  var max = Math.max(array[0], array[array.length - 1]);
+  for (var i = 0; i < array.length; i++) {
+    array[i] = max;
+  }
+  return array;
+}
+
+// program to create an array taking the middle elements of the two arrays of integer and each length 3.
+function midtwo(array1, array2) {
+  var newarray = [];
+  newarray.push(array1[1], array2[1]);
+  return newarray;
+}
+console.log(midtwo([1, 2, 3], [4, 5, 6]));
+
+//  program to create an array by taking the first and last elements from a given array of integers. The length must be larger than or equal to 1.
+function firstlastarray(array) {
+  var newarray = [];
+  if (array.length >= 1) {
+    newarray.push(array[0], array[array.length - 1]);
+  }
+  return newarray;
+}
+console.log(firstlastarray([1, 2, 3]));
+
+//program to test whether an array of integers of length 2 contains 1 or 3.
+function oneorthree(array) {
+  if (array.length === 2) {
+    if (array[0] === 1 || array[0] === 3 || array[1] === 1 || array[1] === 3) {
+      return true;
+    }
+    false;
+  }
+  return false;
+}
+console.log(oneorthree([2, 2])); // false
+console.log(oneorthree([1, 2])); // true
+console.log(oneorthree([3, 2])); // true
+
+//program to test whether an array of integers of length 2 contains 1 or 3.
+// 1st approach
+function oneorthree(array) {
+  if (array.length === 2) {
+    if (array[0] === 1 || array[0] === 3 || array[1] === 1 || array[1] === 3) {
+      return true;
+    }
+    false;
+  }
+  return false;
+}
+console.log(oneorthree([2, 2]));
+
+// 2nd approach
+// Function checks if the array 'nums' contains either 1 or 3
+function contains13(nums) {
+  // Check if 1 is present at any index or 3 is present at any index
+  if (nums.indexOf(1) !== -1 || nums.indexOf(3) !== -1) {
+    // Return true if either 1 or 3 is found
+    return true;
+  } else {
+    // Return false if neither 1 nor 3 is found
+    return false;
+  }
+}
+
+// Example usage of the contains13 function
+console.log(contains13([1, 5])); // Should return true, as 1 is present
+console.log(contains13([2, 3])); // Should return true, as 3 is present
+console.log(contains13([7, 5])); // Should return false, as neither 1 nor 3 is present
+
+//program to test whether an array of integers of length 2 does not contain 1 or 3.
+// 1st approach
+function donotcontains13(nums) {
+  if (nums.indexOf(1) !== -1 || nums.indexOf(3) !== -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// Example usage of the contains13 function
+console.log(donotcontains13([1, 5])); // Should return true, as 1 is present
+console.log(donotcontains13([2, 3])); // Should return true, as 3 is present
+console.log(donotcontains13([7, 5])); // Should return false, as neither 1 nor 3 is present
+
+// 2nd approach
+
+function donotcontains13(array) {
+  if (array.length === 2) {
+    if (array[0] === 1 || array[0] === 3 || array[1] === 1 || array[1] === 3) {
+      return false;
+    }
+    true;
+  }
+  return true;
+}
+console.log(donotcontains13([2, 2]));
+
+//JavaScript program to test whether a given array of integers contains 30 or 40 twice. The array length should be 0, 1, or 2.
+function contains3040(nums) {
+  if (nums.length <= 2) {
+    if (
+      (nums[0] === 30 && nums[1] === 30) ||
+      (nums[0] === 40 && nums[1] === 40)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(contains3040([30, 40])); // false
+console.log(contains3040([30, 30])); // true
+console.log(contains3040([40, 40])); // true
+console.log(contains3040([30])); // false
+
+//JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1.
+function swapfirstlast(array) {
+  if (array.length > 1) {
+    [array[0], array[array.length - 1]] = [array[array.length - 1], array[0]];
+  }
+  return array;
+}
+
+console.log(swapfirstlast([1, 2, 3, 4])); // [4, 2, 3, 1]
+console.log(swapfirstlast([7, 8, 9])); // [9, 8, 7]
+console.log(swapfirstlast([5])); // [5]
+
+//add two elements of a number of lenth 2
+function add(number) {
+  var sum = 0;
+  var str = number.toString();
+  if (str.length == 2) {
+    sum = parseInt(str.charAt(0)) + parseInt(str.charAt(1));
+  }
+  return sum;
+}
+
+console.log(add(12)); // 3
+console.log(add(34)); // 7
+console.log(add(56)); // 11
+
+// Function to add the two digits of a number
+function add_two_digits(n) {
+  // Return the sum of the last digit and the result of dividing the number by 10 and rounding down
+  return (n % 10) + Math.floor(n / 10);
+}
+
+// Example usage
+console.log(add_two_digits(25)); // Output: 7 (2 + 5)
+console.log(add_two_digits(50)); // Output: 5 (5 + 0)
+
+//JavaScript program to add two positive integers without carrying.
+// JavaScript program to add two positive integers without carrying.
+function addWithoutCarrying(a, b) {
+  let result = 0;
+  let place = 1;
+
+  while (a > 0 || b > 0) {
+    let digitA = a % 10;
+    let digitB = b % 10;
+    let sum = (digitA + digitB) % 10;
+
+    result += sum * place;
+    place *= 10;
+    a = Math.floor(a / 10);
+    b = Math.floor(b / 10);
+  }
+
+  return result;
+}
+
+console.log(addWithoutCarrying(123, 456)); // 579
+console.log(addWithoutCarrying(555, 555)); // 000
+console.log(addWithoutCarrying(123, 789)); // 802
+
+// Function to find the longest string(s) in an array
+function longest_string(str_ara) {
+  var max = str_ara[0].length;
+  // Initialize max length with the length of the first string
+  str_ara.map((v) => (max = Math.max(max, v.length)));
+  // Update max with the maximum length in the array using the map function
+  result = str_ara.filter((v) => v.length == max);
+  // Filter out strings that have the maximum length
+  return result;
+  // Return the array of longest strings
+}
+
+// Example usage
+console.log(longest_string(["a", "aa", "aaa", "aaaaa", "aaaa"]));
+
+// JavaScript program to replace each character in a given string with the next in the English alphabet.
+// Note: 'a' will be replace by 'b' or 'z' would be replaced by 'a'.
+// 1st approach
+function nextalpha(str) {
+  var result = "";
+  for (let i = 0; i < str.length; i++) {
+    let charCode = str.charCodeAt(i);
+    if (charCode >= 65 && charCode <= 90) {
+      // Uppercase letters
+      result += String.fromCharCode(((charCode - 65 + 1) % 26) + 65);
+    } else if (charCode >= 97 && charCode <= 122) {
+      // Lowercase letters
+      result += String.fromCharCode(((charCode - 97 + 1) % 26) + 97);
+    } else {
+      // Non-alphabetic characters remain the same
+      result += str.charAt(i);
+    }
+  }
+  return result;
+}
+
+console.log(nextalpha("bishal")); // "cjtibm"
+console.log(nextalpha("BISHAL")); // "CJTIBM"
+
+// 2nd approach
+function nextalpha(str) {
+  return str
+    .split("")
+    .map((char) => {
+      let charCode = char.charCodeAt(0);
+      if (charCode >= 65 && charCode <= 90) {
+        // Uppercase letters
+        return String.fromCharCode(((charCode - 65 + 1) % 26) + 65);
+      } else if (charCode >= 97 && charCode <= 122) {
+        // Lowercase letters
+        return String.fromCharCode(((charCode - 97 + 1) % 26) + 97);
+      } else {
+        // Non-alphabetic characters remain the same
+        return char;
+      }
+    })
+    .join("");
+}
+console.log(nextalpha("bishal")); // "cjtibm"
+console.log(nextalpha("BISHAL")); // "CJTIBM"
+
+// program to divide a given array of positive integers into two parts. First element belongs to the first part,
+//  second element belongs to the second part, and third element belongs to the first part and so on.
+//  Now compute the sum of two parts and store it in an array of size two.
+function dividearray(array) {
+  var result = [0, 0];
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      result[0] += array[i];
+    } else {
+      result[1] += array[i];
+    }
+  }
+  return result;
+}
+
+// Write a JavaScript program to find the types of a given angle.
+
+// Types of angles:
+// Acute angle: An angle between 0 and 90 degrees.
+// Right angle: An 90 degree angle.
+// Obtuse angle: An angle between 90 and 180 degrees.
+// Straight angle: A 180 degree angle.
+function findangle(angle) {
+  var angle = prompt("enter the degree of the angle ");
+  angle = parseInt(angle);
+  if (angle >= 0 && angle < 90) {
+    console.log("Acute Angle");
+  } else if (angle === 90) {
+    console.log("Right Angle");
+  } else if (angle >= 90 && angle <= 180) {
+    console.log("Obtuse Angle");
+  } else if (angle === 180) {
+    console.log("Straight Angle");
+  } else console.log("invalid Input");
+}
+findangle();
+
+//JavaScript program to determine if two arrays of integers of the same length are similar. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.
+function similar_arrays(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+
+  let diff = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      diff.push([arr1[i], arr2[i]]);
+    }
+  }
+
+  if (diff.length === 0) return true; // Arrays are already identical
+  if (diff.length !== 2) return false; // More than one swap needed
+
+  // Check if swapping the two differing pairs makes the arrays identical
+  return diff[0][0] === diff[1][1] && diff[0][1] === diff[1][0];
+}
+
+console.log(similar_arrays([1, 2, 3], [1, 3, 2])); // true
+console.log(similar_arrays([1, 2, 3], [1, 3, 4])); // false
+console.log(similar_arrays([10, 20, 30, 40], [10, 30, 20, 40])); // true
+
+//JavaScript program that takes two integers and a divisor. If the given divisor divides both integers and does not divide either, two specified integers are similar. Check whether two integers are similar or not.
+function similar(x, y, divisor) {
+  return (
+    (x % divisor === 0 && y % divisor === 0) ||
+    (x % divisor !== 0 && y % divisor !== 0)
+  );
+}
+console.log(similar(10, 25, 5)); // true
+console.log(similar(10, 20, 10)); // false
+console.log(similar(10, 20, 4)); // false
+
+// Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.
+// For example x = 10, y = 30 and z = 300, we can replace $ with a multiple operator (*) to obtain x * y = z
+function replace(x, y, z) {
+  return x + y === z || x - y === z || x * y === z || x / y === z;
+}
+console.log(replace(10, 30, 300)); // true
+console.log(replace(10, 30, 40)); // false
+
+// Write a JavaScript program to find the kth greatest element in a given array of integers.
+
+function findKthGreatest(array, k) {
+  // Sort the array in descending order
+  array.sort((a, b) => b - a);
+
+  // Return the k-th greatest element
+  return array[k - 1];
+}
+
+// Example usage
+console.log(findKthGreatest([1, 2, 3, 4, 5], 3)); // 3
+console.log(findKthGreatest([10, 20, 30, 40, 50], 2)); // 40
+console.log(findKthGreatest([5, 4, 3, 2, 1], 1)); // 5
+
+//a JavaScript program to find the maximum possible sum of some of its k consecutive numbers (numbers that follow each other in order) in a given array of positive integers.
+//1st approach
+function maxConsecutiveSum(arr, k) {
+  if (arr.length < k) {
+    return null; // If the array length is less than k, return null
+  }
+
+  let maxSum = 0;
+
+  // Calculate the sum of the first k elements
+  for (let i = 0; i < k; i++) {
+    maxSum += arr[i];
+  }
+
+  let currentSum = maxSum;
+
+  // Slide the window of k elements through the array
+  for (let i = k; i < arr.length; i++) {
+    currentSum += arr[i] - arr[i - k];
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return maxSum;
+}
+console.log(maxConsecutiveSum([1, 2, 3, 14, 5], 2)); // 19
+console.log(maxConsecutiveSum([2, 3, 5, 1, 6], 3)); // 12
+console.log(maxConsecutiveSum([9, 3, 5, 1, 7], 2)); // 12
+
+//2nd approach
+function maxConsecutiveSum(arr, k) {
+  if (arr.length < k) {
+    return null; // If the array length is less than k, return null
+  }
+
+  let maxSum = 0;
+
+  // Calculate the sum of the first k elements
+  for (let i = 0; i < k; i++) {
+    maxSum += arr[i];
+  }
+
+  let currentSum = maxSum;
+
+  // Slide the window of k elements through the array
+  for (let i = k; i < arr.length; i++) {
+    currentSum += arr[i] - arr[i - k];
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return maxSum;
+}
+console.log(maxConsecutiveSum([1, 2, 3, 14, 5], 2)); // 19
+console.log(maxConsecutiveSum([2, 3, 5, 1, 6], 3)); // 12
+console.log(maxConsecutiveSum([9, 3, 5, 1, 7], 2)); // 12
+
+//JavaScript program to find the maximum difference between any two adjacent elements of a given array of integers.
+function maxDifference(arr) {
+  let maxDiff = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    maxDiff = Math.max(maxDiff, Math.abs(arr[i] - arr[i - 1]));
+  }
+
+  return maxDiff;
+}
+console.log(maxDifference([1, 2, 3, 8, 9])); // 5
+console.log(maxDifference([1, 2, 3, 18, 9])); // 15
+console.log(maxDifference([13, 2, 3, 8, 9])); // 11
+
+//JavaScript program to find the maximum difference among all possible pairs of a given array of integers.
+function maxDifference(arr) {
+  let maxDiff = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      maxDiff = Math.max(maxDiff, Math.abs(arr[i] - arr[j]));
+    }
+  }
+
+  return maxDiff;
+}
+console.log(maxDifference([1, 2, 3, 8, 9])); // 8
+console.log(maxDifference([1, 2, 3, 18, 9])); // 17
+console.log(maxDifference([13, 2, 3, 8, 9])); // 11
+
+// JavaScript program to find the most frequent element in an array
+function mostFrequent(arr) {
+  let maxcount = 0;
+  let element_having_max_freq;
+
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] == arr[j]) {
+        count++;
+      }
+    }
+
+    if (count > maxcount) {
+      maxcount = count;
+      element_having_max_freq = arr[i];
+    }
+  }
+
+  return element_having_max_freq;
+}
+console.log(mostFrequent([40, 50, 30, 40, 50, 30, 30]));
+
+//JavaScript program to replace all numbers with a specified number in an array of integers.
+function replaceNumbers(arr, num) {
+  return arr.map((el) => num);
+}
+console.log(replaceNumbers([1, 2, 3, 4, 5], 10)); // [10, 10, 10, 10, 10]
+console.log(replaceNumbers([10, 20, 30, 40, 50], 5)); // [5, 5, 5, 5, 5]
+
+//JavaScript program to compute the sum of the absolute differences of consecutive numbers in a given array of integers.
+function sumOfDifferences(arr) {
+  let sum = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    sum += Math.abs(arr[i] - arr[i - 1]);
+  }
+
+  return sum;
+}
+console.log(sumOfDifferences([1, 2, 3, 4, 5])); // 4
+console.log(sumOfDifferences([10, 20, 30, 40, 50])); // 40
+
+//JavaScript program to find the shortest possible string. This can be converted into a string and converted into a palindrome by adding characters to the end of it.
+function shortestPalindrome(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str.slice(0, str.length - i) === str.slice(i).split("").reverse().join("")
+    ) {
+      return str.slice(0, i).split("").reverse().join("") + str;
+    }
+  }
+}
+console.log(shortestPalindrome("abcde")); // "edcbabcde"
+console.log(shortestPalindrome("bishal")); // "lahsibishal".
+
+//JavaScript program to change the case of the minimum number of letters to make a given string written in upper case or lower case.
+// Fox example "Write" will be write and "PHp" will be "PHP"
+function changeCase(str) {
+  let lowerCaseCount = 0;
+  let upperCaseCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toLowerCase()) {
+      lowerCaseCount++;
+    } else {
+      upperCaseCount++;
+    }
+  }
+
+  return lowerCaseCount < upperCaseCount
+    ? str.toLowerCase()
+    : str.toUpperCase();
+}
+console.log(changeCase("Write")); // "write"
+console.log(changeCase("PHp")); // "PHP"
+console.log(changeCase("bishal")); // "BIHSAL"
+
+//JavaScript program to check whether it is possible to rearrange the characters of a given string. This is in such a way that it will become equal to another given string.
+function rearrangeChars(str1, str2) {
+  return str1.split("").sort().join("") === str2.split("").sort().join("");
+}
+console.log(rearrangeChars("abc", "cba")); // true
+console.log(rearrangeChars("abc", "cbd")); // false
+console.log(rearrangeChars("bishal", "lahsib")); // true
+
+//JavaScript program to check if there is at least one element in two given sorted arrays of integers.\
+function checkElements(arr1, arr2) {
+  let i = 0;
+  let j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] === arr2[j]) {
+      return true;
+    } else if (arr1[i] < arr2[j]) {
+      i++;
+    } else {
+      j++;
+    }
+
+    return false;
+  }
+}
+console.log(checkElements([1, 2, 3, 4, 5], [5, 6, 7, 8, 9])); // true
+
+//JavaScript program to check whether a given string contains only Latin letters and no two uppercase and no two lowercase letters are in adjacent positions.
+function checkLatinLetters(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (!/[a-zA-Z]/.test(str[i])) {
+      return false;
+    }
+
+    if (/[a-z]/.test(str[i]) && /[a-z]/.test(str[i + 1])) {
+      return false;
+    }
+
+    if (/[A-Z]/.test(str[i]) && /[A-Z]/.test(str[i + 1])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(checkLatinLetters("abcDEF")); // true
+
+// //JavaScript program to find the number of inversions of a given array of integers.
+// Note: Two elements of the array a stored at positions i and j form an inversion if a[i] > a[j] and i < j.
+function countInversions(arr) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+
+// a JavaScript program to find the maximum number of a given positive integer by deleting exactly one digit of the given number.
+function digit_delete(num) {
+  var result = 0,
+    num_digits = [];
+  while (num) {
+    num_digits.push(num % 10);
+    num = Math.floor(num / 10);
+  }
+  for (var index_num = 0; index_num < num_digits.length; index_num++) {
+    var n = 0;
+    for (var i = num_digits.length - 1; i >= 0; i--) {
+      if (i !== index_num) {
+        n = n * 10 + num_digits[i];
+      }
+    }
+    result = Math.max(n, result);
+  }
+  return result;
+}
+
+console.log(digit_delete(100));
+console.log(digit_delete(10));
+console.log(digit_delete(1245));
+
+//program to find two elements of an array such that their absolute difference is not larger than a given integer. However, it is as close as possible to the integer.
+function closest(arr, num) {
+  let closest = Infinity;
+  let pair = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      let diff = Math.abs(arr[i] - arr[j]);
+
+      if (diff < closest && diff <= num) {
+        closest = diff;
+        pair = [arr[i], arr[j]];
+      }
+    }
+  }
+
+  return pair;
+}
+console.log(closest([1, 2, 3, 4, 5], 2)); // [1, 2]
+console.log(closest([1, 2, 3, 4, 5], 1)); // [4, 5]
+
+//a JavaScript program to find the number of times to replace a given number with the sum of its digits. This is until it converts to a single-digit number.
+function sumOfDigits(num) {
+  let sum = 0;
+
+  while (num > 0) {
+    sum += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  return sum;
+}
+console.log(sumOfDigits(123)); // 6
+console.log(sumOfDigits(456)); // 15
+console.log(sumOfDigits(789)); // 24
+
+// program to divide an integer by another integer as long as the result is an integer and return the result.
+function divide(num, divisor) {
+  while (num % divisor === 0) {
+    num = num / divisor;
+  }
+
+  return num;
+}
+console.log(divide(81, 3)); // 1
+console.log(divide(100, 2)); // 25
+console.log(divide(100, 3)); // 100
+
+//JavaScript program to find the number of sorted pairs formed by arrays of integers. This is such that one element in the pair is divisible by the other one.
+// For example - The output of [1, 3, 2] ->2 - (1,3), (1,2).
+// The output of [2, 4, 6] -> 2 - (2,4), (2,6)
+// The output of [2, 4, 16] -> 3 - (2,4), (2,16), (4,16)
+function sortedPairs(arr) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] % arr[j] === 0 || arr[j] % arr[i] === 0) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+console.log(sortedPairs([1, 3, 2])); // 2
+console.log(sortedPairs([2, 4, 6])); // 2
+console.log(sortedPairs([2, 4, 16])); // 3
+
+//a JavaScript program to create the dot products of two given 3D vectors.
+// Note: The dot product is the sum of the products of the corresponding entries of the two sequences of numbers.
+
+function dotProduct(vector1, vector2) {
+  let sum = 0;
+
+  for (let i = 0; i < vector1.length; i++) {
+    sum += vector1[i] * vector2[i];
+  }
+
+  return sum;
+}
+console.log(dotProduct([1, 2, 3], [1, 2, 3])); // 14
+console.log(dotProduct([2, 4, 6], [1, 2, 3])); // 28
+
+//JavaScript program to sort an array of all prime numbers between 1 and a given integer.
+function isPrime(num) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return num > 1;
+}
+console.log(isPrime(5)); // true
+console.log(isPrime(10)); // false
+console.log(isPrime(13)); // true
+
+//a JavaScript program to find the number of even values in sequence before the first occurrence of a given number.
+function countEven(arr, num) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      break;
+    }
+
+    if (arr[i] % 2 === 0) {
+      count++;
+    }
+  }
+
+  return count;
+}
+console.log(countEven([1, 2, 3, 4, 5], 4)); // 1
+console.log(countEven([2, 4, 6, 8, 10], 8)); // 2
+
+// a JavaScript program to check a number from three given numbers where two numbers are equal. Find the third one.
+function findThirdNumber(x, y, z) {
+  if (x === y) {
+    return z;
+  } else if (x === z) {
+    return y;
+  } else {
+    return x;
+  }
+}
+console.log(findThirdNumber(1, 2, 2)); // 1
+console.log(findThirdNumber(1, 1, 2)); // 2
+console.log(findThirdNumber(1, 2, 3)); // 1
+
+//a JavaScript program to find the number of trailing zeros in the decimal representation of the factorial of a given number.
+function trailingZeros(num) {
+  let count = 0;
+
+  for (let i = 5; num / i >= 1; i *= 5) {
+    count += Math.floor(num / i);
+  }
+
+  return count;
+}
+console.log(trailingZeros(5)); // 1
+console.log(trailingZeros(10)); // 2
+console.log(trailingZeros(15)); // 3
+
+// a JavaScript program to calculate the sum of n + n/2 + n/4 + n/8 + .... where n is a positive integer and all divisions are integers.
+function sumSeries(num) {
+  let sum = 0;
+
+  while (num > 0) {
+    sum += num;
+    num = Math.floor(num / 2);
+  }
+
+  return sum;
+}
+console.log(sumSeries(8)); // 15  8+4+2+1
+
+//a JavaScript program to check whether a given string represents a correct sentence or not. A string is considered a correct sentence if it starts with a capital letter and ends with a full stop (.)
+function isCorrectSentence(str) {
+  return /^[A-Z].*\.$/.test(str);
+}
+console.log(isCorrectSentence("This is a correct sentence.")); // true
+console.log(isCorrectSentence("this is not a correct sentence")); // false
+
+//a JavaScript program to check whether a matrix is a diagonal matrix or not. In linear algebra, a diagonal matrix is a matrix in which the entries outside the main diagonal are all zero (the diagonal from the upper left to the lower right).
+// Example:
+// [1, 0, 0],
+// [0, 2, 0],
+// [0, 0, 3] ]) = true
+// [1, 0, 0],
+// [0, 2, 3],
+// [0, 0, 3] ]) = false
+function isDiagonalMatrix(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (i !== j && matrix[i][j] !== 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+console.log(
+  isDiagonalMatrix([
+    [1, 0, 0],
+    [0, 2, 0],
+    [0, 0, 3],
+  ])
+); // true
+
+console.log(
+  isDiagonalMatrix([
+    [1, 0, 0],
+    [0, 2, 3],
+    [0, 0, 3],
+  ])
+); // false
+
+//Write a JavaScript program to find all the possible options to replace the hash in a string (Consists of digits and one hash (#)) with a digit to produce an integer divisible by 3.
+// For a string "2*0", the output should be : ["210", "240", "270"]
+function replaceHash(str) {
+  let result = [];
+
+  for (let i = 0; i < 10; i++) {
+    let num = str.replace("#", i);
+    if (parseInt(num) % 3 === 0) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
+console.log(replaceHash("2#0")); // ["210", "240", "270"]
+
+// JavaScript program to check whether a given matrix is an identity matrix.
+function isIdentityMatrix(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (i === j && matrix[i][j] !== 1) {
+        return false;
+      }
+      if (i !== j && matrix[i][j] !== 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+console.log(
+  isIdentityMatrix([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1],
+  ])
+); // true
+console.log(
+  isIdentityMatrix([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 1, 1],
+  ])
+); // false
+
+//JavaScript program to check whether a given number is in a given range.
+function inRange(num, range) {
+  return num >= range[0] && num <= range[1];
+}
+console.log(inRange(5, [1, 10])); // true
+console.log(inRange(15, [1, 10])); // false
+
+//JavaScript program to check if a given integer has an increasing digit sequence.
+function increasingDigits(num) {
+  let str = num.toString();
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] <= str[i - 1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(increasingDigits(123)); // true
+
+//JavaScript program to check if a point lies strictly inside the circle.
+// Input:
+// Center of the circle (x, y)
+// Radius of circle: r
+// Point inside a circle (a, b)
+// Output: True or False
+function pointInsideCircle(x, y, a, b, r) {
+  return (a - x) ** 2 + (b - y) ** 2 < r ** 2;
+}
+console.log(pointInsideCircle(0, 0, 1, 1, 1)); // false
+console.log(pointInsideCircle(0, 0, 1, 0, 1)); // true
+
+//JavaScript program to check whether a given matrix is lower triangular or not.
+// Note: A square matrix is called lower triangular if all the entries above the main diagonal are zero.
+function isLowerTriangular(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = i + 1; j < matrix[i].length; j++) {
+      if (matrix[i][j] !== 0) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+console.log(
+  isLowerTriangular([
+    [1, 0, 0],
+    [2, 3, 0],
+    [4, 5, 6],
+  ])
+); // true
+
+//JavaScript program to check whether a given array of integers represents a strictly increasing or decreasing sequence.
+function increasingOrDecreasing(arr) {
+  let increasing = true;
+  let decreasing = true;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] <= arr[i - 1]) {
+      increasing = false;
+    }
+
+    if (arr[i] >= arr[i - 1]) {
+      decreasing = false;
+    }
+  }
+
+  return increasing || decreasing;
+}
+console.log(increasingOrDecreasing([1, 2, 3, 4, 5])); // true
+console.log(increasingOrDecreasing([5, 4, 3, 2, 1])); // true
+console.log(increasingOrDecreasing([1, 2, 3, 2, 1])); // false
+
+// JavaScript program to find out if the members of a given array of integers are a permutation of numbers from 1 to a given integer.
+function isPermutation(arr, n) {
+  if (arr.length !== n) {
+    return false;
+  }
+
+  for (let i = 1; i <= n; i++) {
+    if (!arr.includes(i)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(isPermutation([1, 2, 3, 4, 5], 5)); // true
+console.log(isPermutation([1, 2, 3, 4, 5], 6)); // false
+
+// a JavaScript program to create the NOR value of two given booleans.
+// Note: In boolean logic, logical nor or joint denial is a truth-functional operator which produces a result that is the negation of logical or. That is, a sentence of the form (p NOR q) is true precisely when neither p nor q is true - i.e. when both of p and q are false
+// Sample Example:
+// For x = true and y = false, the output should be logical_Nor(x, y) = false; For x = false and y = false, the output should be logical_Nor(x, y) = true.
+function logical_Nor(p, q) {
+  return !(p || q);
+}
+console.log(logical_Nor(true, false)); // false
+console.log(logical_Nor(false, false)); // true
+
+//Write a JavaScript program to find the longest string in a given array.
+function longest_string(str_ara) {
+  var max = str_ara[0].length;
+  // Initialize max length with the length of the first string
+  str_ara.map((v) => (max = Math.max(max, v.length)));
+  // Update max with the maximum length in the array using the map function
+  result = str_ara.filter((v) => v.length == max);
+  // Filter out strings that have the maximum length
+  return result;
+  // Return the array of longest strings
+}
+console.log(longest_string(["a", "aa", "aaa", "aaaaa", "aaaa"]));
+// ["aaaaa"]
+
+//a JavaScript program to get the largest even number from an array of integers.
+function largest_even(arr) {
+  let even = arr.filter((num) => num % 2 === 0);
+  return Math.max(...even);
+}
+console.log(largest_even([1, 2, 3, 4, 5])); // 4
+
+//JavaScript program to reverse the order of bits in a integer.
+//14 -> 00001110 -> 01110000 -> 112
+// 56 -> 00111000 -> 00011100 -> 28
+// 234 -> 11101010 -> 01010111 -> 87
+function reverseBits(num) {
+  return parseInt(num.toString(2).split("").reverse().join(""), 2);
+}
+console.log(reverseBits(14)); // 112
+console.log(reverseBits(56)); // 28
+console.log(reverseBits(234)); // 87
+
+//program to find the smallest round number not less than a given value.
+// Note: A round number is informally considered to be an integer that ends with one or more zeros.[3] So, 590 is rounder than 592, but 590 is less round than 600.
+function smallestRoundNumber(num) {
+  while (num % 10 !== 0) {
+    num++;
+  }
+  return num;
+}
+console.log(smallestRoundNumber(592)); // 600
+console.log(smallestRoundNumber(590)); // 600
+console.log(smallestRoundNumber(640)); // 640

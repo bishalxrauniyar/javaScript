@@ -2033,3 +2033,135 @@ function noelements(array1, array2) {
   return [arr1Length, arr2Length];
 }
 console.log(noelements([1, 2, 3], [4, 5, 6]));
+
+// a JavaScript program to simplify a given absolute path for a file in Unix-style.
+function simplifyPath(path) {
+  let stack = [];
+
+  for (let dir of path.split("/")) {
+    if (dir === "..") {
+      stack.pop();
+    } else if (dir !== "." && dir !== "") {
+      stack.push(dir);
+    }
+  }
+
+  return "/" + stack.join("/");
+}
+console.log(simplifyPath("/home/")); // "/home"
+console.log(simplifyPath("/../")); // "/"
+
+//JavaScript program to sort the strings of a given array of strings in order of increasing length.
+// Note: Do not change the order if the lengths of two string are same.
+function sortStrings(arr) {
+  return arr.sort((a, b) => a.length - b.length);
+}
+console.log(sortStrings(["abc", "ab", "abcd"])); // ["ab", "abc", "abcd"]
+console.log(sortStrings(["abc", "ab", "a"])); // ["a", "ab", "abc"]
+console.log(sortStrings(["xyz", "acd", "aa", "bb", "zzz", "", "a", "b"])); // ["", "a", "b", "aa", "bb", "acd", "xyz", "zzz"]
+
+//JavaScript program to break an URL address and put its parts into an array.
+// Note: url structure : ://.org[/] and there may be no part in the address.
+function breakURL(url) {
+  return url.match(/(\w+):\/\/(\w+)\.(\w+)(\/\w+)?/).slice(1);
+}
+console.log(
+  breakURL(
+    "https://www.w3resource.com/javascript-exercises/javascript-array-exercise-1.php"
+  )
+); // ["https", "www", "w3resource", "/javascript-exercises/javascript-array-exercise-1.php"]
+
+//second approach
+
+function break_address(url_add) {
+  var data = url_add.split("://");
+  var protocol = data[0];
+  data = data[1].split(".com");
+  var domain = data[0];
+  data = data[1].split("/");
+
+  if (data[1]) {
+    return [protocol, domain, data[1]];
+  }
+
+  return [protocol, domain];
+}
+
+var url_add = "https://www.w3resource.com/javascript-exercises/";
+console.log("Original address: " + url_add);
+console.log(break_address(url_add));
+
+//
+//a JavaScript program to find the maximum integer n such that 1 + 2 + ... + n <= a given integer.
+function maxInteger(num) {
+  let sum = 0;
+
+  for (let i = 1; i <= num; i++) {
+    sum += i;
+  }
+
+  return sum;
+}
+console.log(maxInteger(10)); // 55
+console.log(maxInteger(15)); // 120
+
+//Sum of Cubes from 1 to n
+function sumOfCubes(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i * i * i;
+  }
+  return sum;
+}
+console.log(sumOfCubes(3)); // 36
+console.log(sumOfCubes(4)); // 100
+
+//a JavaScript program to compute the sum of all the digits that occur in a given string.
+function sumDigits(str) {
+  return str
+    .split("")
+    .filter((char) => /\d/.test(char))
+    .reduce((acc, curr) => acc + parseInt(curr), 0);
+}
+console.log(sumDigits("abc123")); // 6
+console.log(sumDigits("12345")); // 15
+
+//a JavaScript program to swap two halves of a given array of integers of even length.
+function swapHalves(arr) {
+  let middle = arr.length / 2;
+  return [...arr.slice(middle), ...arr.slice(0, middle)];
+}
+console.log(swapHalves([1, 2, 3, 4, 5, 6])); // [4, 5, 6, 1, 2, 3]
+console.log(swapHalves([1, 2, 3, 4, 5, 6, 7, 8])); // [5, 6, 7, 8, 1, 2, 3, 4]
+
+//a JavaScript program to change the capitalization of all letters in a given string.
+function changeCase(str) {
+  return str
+    .split("")
+    .map((char) =>
+      char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+    )
+    .join("");
+}
+console.log(changeCase("abc")); // "ABC"
+console.log(changeCase("ABC")); // "abc"
+console.log(changeCase("aBC")); // "Abc"
+
+// a JavaScript program to swap pairs of adjacent digits of a given integer of even length.
+function swapPairs(num) {
+  return parseInt(
+    num
+      .toString()
+      .match(/../g)
+      .map((pair) => pair.split("").reverse().join(""))
+      .join("")
+  );
+}
+console.log(swapPairs(123456)); // 2143
+
+//
+///
+///
+///
+///
+//ES6 JavaScript program

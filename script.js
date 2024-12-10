@@ -2025,3 +2025,11 @@ function sameDigits(num) {
 }
 console.log(sameDigits(111)); // true
 console.log(sameDigits(123)); // false
+
+//JavaScript program to find the number of elements in both arrays.
+function noelements(array1, array2) {
+  let arr1Length = array1.length;
+  let arr2Length = array2.length;
+  return [arr1Length, arr2Length];
+}
+console.log(noelements([1, 2, 3], [4, 5, 6]));

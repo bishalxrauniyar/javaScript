@@ -2006,3 +2006,22 @@ function reverseBits(n) {
 }
 console.log(reverseBits(1)); // 32768
 console.log(reverseBits(2)); // 16384
+
+//a JavaScript program to find the position of the rightmost round number in an array of integers. If there are no round numbers, the function returns 0.  A round number is an integer that ends with one or more zeros.
+function rightmostRoundNumber(arr) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] % 10 === 0) {
+      return i + 1;
+    }
+  }
+  return 0;
+}
+console.log(rightmostRoundNumber([1, 2, 30, 40, 50])); // 4
+console.log(rightmostRoundNumber([1, 2, 3, 4, 5])); // 0
+
+//JavaScript program to check whether all the digits in a given number are the same or not.
+function sameDigits(num) {
+  return new Set(num.toString()).size === 1;
+}
+console.log(sameDigits(111)); // true
+console.log(sameDigits(123)); // false

@@ -2367,3 +2367,232 @@ const randomHexColorCode = () =>
     .padEnd(6, "0");
 console.log(randomHexColorCode()); // "#f03665"
 console.log(randomHexColorCode()); // "#f09215"
+
+//JavaScript program to generate a random hexadecimal color code.
+const HexColorCode = () =>
+  "#" +
+  Math.floor(Math.random() * 0xffffff)
+    .toString(16)
+    .padEnd(6, "0");
+console.log(HexColorCode()); // "#f03665"
+console.log(HexColorCode()); // "#f09215"
+
+//Remove Non-Printable ASCII from String
+const removeNonASCII = (str) => str.replace(/[^\x20-\x7E]/g, "");
+console.log(removeNonASCII("äÄçÇéÉêlorem-ipsumöÖÐþúÚ")); // "lorem-ipsum"
+console.log(removeNonASCII("lorem-ipsum")); // "lorem-ipsum"
+
+//a JavaScript program to convert a given string's length to bytes.
+const byteSize = (str) => new Blob([str]).size;
+console.log(byteSize("😀<3")); // 6
+console.log(byteSize("Hello World")); // 11
+
+//a JavaScript program to replace multiple object keys' names with the values provided.
+const renameKeys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] },
+    }),
+    {}
+  );
+const obj = { name: "Bobo", job: "Front-End Master", shoeSize: 100 };
+console.log(renameKeys({ name: "firstName", job: "passion" }, obj)); // { firstName: 'Bobo', passion: 'Front-End Master', shoeSize: 100 }
+
+//JavaScript program to round a number to a specified amount of digits
+const round = (n, decimals = 0) =>
+  Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);
+console.log(round(1.005, 2)); // 1.01
+console.log(round(1.005)); // 1
+
+//JavaScript program to create an object composed of the properties the given function returns false for. The function is invoked with two arguments: (value and key).
+const pickBy = (obj, fn) =>
+  Object.keys(obj)
+    .filter((k) => fn(obj[k], k))
+    .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
+console.log(pickBy({ a: 1, b: "2", c: 3 }, (v) => typeof v === "number")); // { a: 1, c: 3 }
+
+//a JavaScript program to redirect to a specified URL.
+const redirect = (url, asLink = true) =>
+  asLink ? (window.location.href = url) : window.location.replace(url);
+console.log(redirect("https://www.w3resource.com", false)); // (redirects to the specified URL)
+
+//Error Handling
+// try catch block
+//a JavaScript program to validate an integer using try catch method.Error handling
+function validateInt(number) {
+  if (!Number.isInteger(number)) {
+    throw new Error("Invalid input number. Please enter a valid integer.");
+  }
+  console.log("Valid input number.", number);
+}
+
+try {
+  validateInt("hello");
+} catch (error) {
+  console.log("Error:", error.message);
+}
+
+try {
+  validateInt(5);
+} catch (error) {
+  console.log("Error:", error.message);
+}
+
+try {
+  validateInt(3.14);
+} catch (error) {
+  console.log("Error:", error.message);
+}
+
+//JavaScript program that uses a try-catch block to catch and handle a 'TypeError' when accessing a property of an undefined object.
+try {
+  const obj = undefined;
+  console.log(obj.prop);
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("Caught TypeError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+try {
+  const obj = undefined;
+  console.lof(obj.prop);
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("Caught TypeError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+//JavaScript function that accepts two numbers as parameters and throws a custom 'Error' if the second number is zero.
+function divide(n1, n2) {
+  if (n2 === 0) {
+    throw new Error("Error :cannot divide by zero");
+  }
+  return n1 / n2;
+}
+try {
+  console.log(divide(2, 0));
+} catch (error) {
+  console.log(error.message);
+}
+try {
+  console.log(divide(2, 2));
+} catch (error) {
+  console.log(error.message);
+}
+
+// JavaScript program to check if the number is positive or not
+function CheckPositiveNumber(n2) {
+  if (n2 < 0) {
+    throw new Error("Error :Cannot be a negative number");
+  }
+  return n2;
+}
+try {
+  console.log(CheckPositiveNumber(2));
+} catch (error) {
+  console.log(error.message);
+}
+try {
+  console.log(CheckPositiveNumber(-2));
+} catch (error) {
+  console.log(error.message);
+}
+
+// a JavaScript function that takes an array as a parameter and throws a custom 'Error' if the array is empty.
+function CheckArray(array) {
+  if (array.length === 0) {
+    throw new Error("aray is empty");
+  }
+  return array;
+}
+try {
+  console.log(CheckArray([]));
+} catch (error) {
+  console.log(error.message);
+}
+try {
+  console.log(CheckArray([1, 211, 1]));
+} catch (error) {
+  console.log(error.message);
+}
+
+// a JavaScript function that takes an string as a parameter and throws a custom 'Error' if the array is empty.
+function CheckString(str) {
+  if (str.length === 0) {
+    throw new Error("String is empty");
+  }
+  return str;
+}
+try {
+  console.log(CheckString([]));
+} catch (error) {
+  console.log(error.message);
+}
+try {
+  console.log(CheckString(["bishal"]));
+} catch (error) {
+  console.log(error.message);
+}
+
+//Write a JavaScript program that uses a try-catch block to catch and handle a 'RangeError' when accessing an array with an invalid index.
+try {
+  const arr = [1, 2, 3];
+  console.log(arr[10]);
+} catch (error) {
+  if (error instanceof RangeError) {
+    console.log("Caught RangeError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+function checkArrayIndex(arr, index) {
+  if (index < 0 || index >= arr.length) {
+    throw new RangeError("Invalid index");
+  }
+  return arr[index];
+}
+const arr = [1, 2, 3];
+try {
+  console.log(checkArrayIndex(arr, 10));
+} catch (error) {
+  console.log(error.message);
+}
+// Write a JavaScript program that shows the use of multiple catch blocks to handle different types of errors separately.
+try {
+  const obj = undefined;
+  console.log(obj.prop);
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("Caught TypeError:", error.message);
+  } else {
+    throw error;
+  }
+}
+try {
+  const arr = [1, 2, 3];
+  console.log(arr[10]);
+} catch (error) {
+  if (error instanceof RangeError) {
+    console.log("Caught RangeError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+//Write a JavaScript program that uses a try-catch block to catch and handle a `URIError` when decoding an invalid URI.
+try {
+  decodeURI("%");
+} catch (error) {
+  if (error instanceof URIError) {
+    console.log("Caught URIError:", error.message);
+  } else {
+    throw error;
+  }
+}

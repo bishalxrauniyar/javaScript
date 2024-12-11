@@ -2165,3 +2165,27 @@ console.log(swapPairs(123456)); // 2143
 ///
 ///
 //ES6 JavaScript program
+//a JavaScript program to compare two objects to determine if the first contains equivalent property values to the second one.
+const matches = (obj, source) =>
+  // Iterate over each key in the source object and check if it exists in the obj object and has the same value.
+  Object.keys(source).every(
+    (key) => obj.hasOwnProperty(key) && obj[key] === source[key]
+  );
+console.log(
+  matches({ age: 25, hair: "long", beard: true }, { hair: "long", beard: true })
+); // true
+console.log(
+  matches({ hair: "long", beard: true }, { age: 25, hair: "long", beard: true })
+); // false
+
+//objects
+const match = (obj, source) =>
+  Object.keys(source).every(
+    (key) => obj.hasOwnProperty(key) && obj[key] === source[key]
+  );
+console.log(
+  match(
+    { age: 25, hair: "long", student: true },
+    { hair: "long", student: true }
+  )
+); //true

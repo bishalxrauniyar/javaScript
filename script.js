@@ -2189,3 +2189,181 @@ console.log(
     { hair: "long", student: true }
   )
 ); //true
+
+//Write a JavaScript program to convert a comma-separated value (CSV) string to a 2D array.
+
+// Note: Use String.split('\n') to create a string for each row, then String.split(delimiter) to separate the values in each row. Omit the second argument, delimiter, to use a default delimiter of ,. Omit the third argument, omitFirstRow, to include the first row (title row) of the CSV string.
+
+// Use Array.prototype.slice() and Array.prototype.indexOf('\n') to remove the first row (title row) if omitFirstRow is true.
+// Use String.prototype.split('\n') to create a string for each row, then String.prototype.split(delimiter) to separate the values in each row.
+// Omit the second argument, delimiter, to use a default delimiter of ,.
+// Omit the third argument, omitFirstRow, to include the first row (title row) of the CSV string.
+
+const CSV_to_Array = (data, delimiter = ",", omitFirstRow = false) =>
+  (omitFirstRow ? data.split("\n").slice(1) : data.split("\n")).map((v) =>
+    v.split(delimiter)
+  );
+console.log(CSV_to_Array("a,b\nc,d")); // [["a", "b"], ["c", "d"]]
+console.log(CSV_to_Array("a;b\nc;d", ";")); // [["a", "b"], ["c", "d"]]
+
+// //The
+
+// CSV_to_Array
+
+// function in the provided JavaScript code is designed to convert a CSV (Comma-Separated Values) string into a two-dimensional array. This function takes three parameters:
+
+// data
+
+// ,
+
+// delimiter
+
+// , and
+
+// omitFirstRow
+
+// .
+
+// Here's a detailed explanation of how the function works, along with examples:
+
+// ### Parameters:
+// 1. **
+
+// data
+
+// **: The CSV string to be converted.
+// 2. **
+
+// delimiter
+
+// **: The character used to separate values in the CSV string. It defaults to a comma (`,`).
+// 3. **
+
+// omitFirstRow
+
+// **: A boolean flag indicating whether to omit the first row of the CSV string. It defaults to `false`.
+
+// ### Function Logic:
+// 1. **Splitting the Data into Rows**:
+//   -
+
+// data.split("\n")
+
+// : This splits the CSV string into an array of rows based on newline characters (`\n`).
+//   - If
+
+// omitFirstRow
+
+// is `true`, the first row is omitted by using
+
+// slice(1)
+
+// . Otherwise, the entire array of rows is used.
+
+// 2. **Mapping Rows to Arrays of Values**:
+//   - Each row (string) is mapped to an array of values by splitting the row based on the specified
+
+// delimiter
+
+// .
+
+// ### Detailed Steps:
+// 1. **Splitting the Data**:
+//   -
+
+// data.split("\n")
+
+// : Splits the CSV string into an array of rows. For example, `"a,b\nc,d"` becomes `["a,b", "c,d"]`.
+
+// 2. **Omitting the First Row (if required)**:
+//   -
+
+// omitFirstRow ? data.split("\n").slice(1) : data.split("\n")
+
+// : Checks if
+
+// omitFirstRow
+
+// is `true`. If it is, the first row is omitted by using
+
+// slice(1)
+
+// , which removes the first element of the array. If
+
+// omitFirstRow
+
+// is `false`, the entire array of rows is used.
+
+// 3. **Mapping Rows to Arrays**:
+//   - `.map((v) => v.split(delimiter))`: Maps each row (string) to an array of values by splitting the row based on the specified
+
+// delimiter
+
+// . For example, `"a,b"` becomes `["a", "b"]`.
+
+// ### Return Value:
+// - The function returns a two-dimensional array where each sub-array represents a row of values from the CSV string.
+
+// ### Example Calls:
+// 1. **Example 1**:
+//   ```javascript
+//   console.log(CSV_to_Array("a,b\nc,d")); // [["a", "b"], ["c", "d"]]
+//   ```
+//   - The CSV string `"a,b\nc,d"` is split into `["a,b", "c,d"]`.
+//   - Each row is split by the default comma delimiter, resulting in `[["a", "b"], ["c", "d"]]`.
+
+// 2. **Example 2**:
+//   ```javascript
+//   console.log(CSV_to_Array("a;b\nc;d", ";")); // [["a", "b"], ["c", "d"]]
+//   ```
+//   - The CSV string `"a;b\nc;d"` is split into `["a;b", "c;d"]`.
+//   - Each row is split by the specified semicolon delimiter, resulting in `[["a", "b"], ["c", "d"]]`.
+
+// ### Code:
+// ```javascript
+// const CSV_to_Array = (data, delimiter = ",", omitFirstRow = false) =>
+//  (omitFirstRow ? data.split("\n").slice(1) : data.split("\n")).map((v) =>
+//    v.split(delimiter)
+//  );
+
+// console.log(CSV_to_Array("a,b\nc,d")); // [["a", "b"], ["c", "d"]]
+// console.log(CSV_to_Array("a;b\nc;d", ";")); // [["a", "b"], ["c", "d"]]
+// ```
+
+// This function is useful for parsing CSV data into a more manageable array format, which can then be easily processed or manipulated in JavaScript.
+
+//a JavaScript program to filter out the specified values from a specified array. Return the original array without filtered values.
+const without = (arr, ...args) => arr.filter((v) => !args.includes(v));
+console.log(without([2, 1, 2, 3], 1, 2)); // [3]
+
+// a JavaScript program to combine the numbers of a given array into an array containing all combinations.
+const allCombos = (arr) =>
+  arr.reduce((acc, val) => acc.concat(acc.map((c) => [val].concat(c))), [[]]);
+console.log(allCombos([1, 2])); // [[1, 2], [2, 1]]
+
+//2nd approach
+const powerset = (arr) =>
+  // Reduce the array to generate the powerset.
+  arr.reduce(
+    // For each element in the array, concatenate it with each element of the accumulated result.
+    (a, v) => a.concat(a.map((r) => [v].concat(r))),
+    [[]]
+  );
+
+// Test cases
+console.log(powerset([1, 2]));
+console.log(powerset([1, 2, 3]));
+console.log(powerset([1, 2, 3, 4]));
+
+//a JavaScript program to extract values at specified indexes from a specified array.
+const extractValues = (arr, indexes) => indexes.map((i) => arr[i]);
+console.log(extractValues(["a", "b", "c", "d"], [1, 3])); // ["b", "d"]
+
+//JavaScript program to generate a random hexadecimal color code.
+const randomHexColorCode = () =>
+  "#" +
+  Math.floor(Math.random() * 0xffffff)
+    .toString(16)
+    .padEnd(6, "0");
+console.log(randomHexColorCode()); // "#f03665"
+console.log(randomHexColorCode()); // "#f09215"

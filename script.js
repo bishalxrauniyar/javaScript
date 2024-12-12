@@ -2596,3 +2596,287 @@ try {
     throw error;
   }
 }
+
+//JavaScript program that demonstrates the use of the 'try-catch-finally' statement to catch and handle an error, and then execute some cleanup code in the 'finally' block.
+try {
+  throw new Error("An error occurred");
+} catch (error) {
+  console.log("Caught error:", error.message);
+} finally {
+  console.log("Cleanup code executed");
+}
+
+// example 2
+function divide(n1, n2) {
+  try {
+    if (n2 === 0) {
+      throw new Error("Error: Cannot divide by zero");
+    }
+    return n1 / n2;
+  } catch (error) {
+    console.log("Caught error:", error.message);
+  } finally {
+    console.log("Execution completed");
+  }
+}
+console.log(divide(2, 0));
+console.log(divide(2, 2));
+
+//JavaScript program that uses a try-catch block to catch and handle an 'EvalError' when evaluating an invalid expression.
+try {
+  eval("x+++");
+} catch (error) {
+  if (error instanceof EvalError) {
+    console.log("Caught EvalError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+//javaScript program that uses a try-catch block to catch and handle a 'ReferenceError' when accessing an undefined variable.
+try {
+  console.log(undefinedVariable);
+} catch (error) {
+  if (error instanceof ReferenceError) {
+    console.log("Caught ReferenceError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+//JavaScript program that uses a try-catch block to catch and handle a 'SyntaxError' when parsing an invalid JSON string.
+try {
+  JSON.parse("{ key: 'value' }");
+} catch (error) {
+  if (error instanceof SyntaxError) {
+    console.log("Caught SyntaxError:", error.message);
+  } else {
+    throw error;
+  }
+}
+
+//JavaScript functions
+//reverse a number
+function reverseNumber(n) {
+  return n.toString().split("").reverse().join("");
+}
+console.log(reverseNumber(12345)); //54321
+
+//Check Palindrome
+function isPalindrome(n) {
+  return n.toString() === n.toString().split("").reverse().join("");
+}
+console.log(isPalindrome(121)); //true
+console.log(isPalindrome(123)); //false
+
+//String Combinations
+function stringCombinations(str) {
+  let result = [];
+  let f = (prefix, str) => {
+    for (let i = 0; i < str.length; i++) {
+      result.push(prefix + str[i]);
+      f(prefix + str[i], str.slice(i + 1));
+    }
+  };
+  f("", str);
+  return result;
+}
+console.log(stringCombinations("abc")); //["a", "ab", "abc", "ac", "b", "bc", "c"]
+
+//Sort String Alphabetically
+function sortString(str) {
+  return str.split("").sort().join("");
+}
+console.log(sortString("webmaster")); //abeemrstw
+console.log(sortString("bishal")); //abhils
+
+//Capitalize First Letter of Each Word
+function capitalizeWords(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+}
+console.log(capitalizeWords("hello world")); //Hello World
+
+//Find Longest Word
+function longestWord(str) {
+  return str.split(" ").reduce((a, b) => (a.length > b.length ? a : b));
+}
+console.log(longestWord("Web Development Tutorial")); //Development
+
+//Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.
+
+function CounterV(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase();
+    if (
+      char === "a" ||
+      char === "e" ||
+      char === "i" ||
+      char === "o" ||
+      char === "u"
+    ) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(CounterV("Bishal")); // 2
+console.log(CounterV("Hello")); // 2
+console.log(CounterV("JavaScript")); // 3
+
+//Check Prime Using Recursion
+function isPrime(n, i = 2) {
+  if (n <= 2) {
+    return n === 2;
+  }
+  if (n % i === 0) {
+    return false;
+  }
+  if (i * i > n) {
+    return true;
+  }
+  return isPrime(n, i + 1);
+}
+console.log(isPrime(7)); //true
+console.log(isPrime(10)); //false
+
+//Write a JavaScript function that accepts an argument and returns the type.
+// Note : There are six possible values that typeof returns: object, boolean, function, number, string, and undefined.
+function checkType(value) {
+  return typeof value;
+}
+console.log(checkType(5)); //number
+console.log(checkType("Hello")); //string
+console.log(checkType(true)); //boolean
+console.log(checkType({})); //object
+console.log(checkType(undefined)); //undefined
+
+//Write a JavaScript function that takes an array of numbers and finds the second lowest and second greatest numbers
+function secondLowestGreatest(arr) {
+  arr.sort();
+  return [arr[1], arr[arr.length - 2]];
+}
+console.log(secondLowestGreatest([1, 2, 3, 4, 5])); // [2, 4]
+
+//js program to check if a number is a perfect number or not
+function isPerfectNumber(num) {
+  if (num <= 1) return false;
+
+  let sum = 0;
+  for (let i = 1; i <= num / 2; i++) {
+    if (num % i === 0) {
+      sum += i;
+    }
+  }
+
+  return sum === num;
+}
+
+// Example usage
+console.log(isPerfectNumber(6)); // true (6 = 1 + 2 + 3)
+console.log(isPerfectNumber(28)); // true (28 = 1 + 2 + 4 + 7 + 14)
+console.log(isPerfectNumber(12)); // false
+console.log(isPerfectNumber(496)); // true (496 = 1 + 2 + 4 + 8 + 16 + 31 + 62 + 124 + 248)
+
+// factor of a number
+function FactorNumber(n) {
+  let result = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+console.log(FactorNumber(15)); //[1, 3, 5, 15]
+console.log(FactorNumber(10)); //[1, 2, 5, 10]
+console.log(FactorNumber(20)); //[1, 2, 4, 5, 10, 20]
+
+//// Define a function named exp that calculates the result of raising a base (b) to a power (n)
+function exp(b, n) {
+  return b ** n;
+}
+console.log(exp(2, 3)); // 8
+console.log(exp(3, 2)); // 9
+console.log(exp(4, 0)); // 1
+
+////JavaScript function to extract unique characters from a string.
+function UniqueCharacter(str) {
+  let result = new Set(str);
+
+  return result.join("");
+}
+console.log(UniqueCharacter("bishalrauniyar")); //bishalruny
+console.log(UniqueCharacter("javascript")); //javscript
+
+////a JavaScript function to get the number of occurrences of each letter in a specified string.
+function countOccurrences(str) {
+  return str.split("").reduce((acc, char) => {
+    acc[char] = (acc[char] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+console.log(countOccurrences("Bishal")); // { B: 1, i: 1, s: 1, h: 1, a: 1, l: 1 }
+console.log(countOccurrences("hello")); // { h: 1, e: 1, l: 2, o: 1 }
+console.log(countOccurrences("javascript")); // { j: 1, a: 2, v: 1, s: 1, c: 1, r: 1, i: 1, p: 1, t: 1 }
+
+////Write a JavaScript function that returns array elements larger than a number.
+function LargerThanNumber(array, number) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > number) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+}
+console.log(LargerThanNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], 5)); //[6,7,8,9]
+console.log(LargerThanNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); //[4,5,6,7,8,9]
+
+//ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+//a JavaScript function to generate a random alphanumeric string.
+function randomString(length) {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+console.log(randomString(8)); // "eA9bF3cD"
+console.log(randomString(12)); // "gH8iJ4jK6lL"
+
+//Count Letter in String SPECIFIC
+//Count Letter in String Specific
+
+function CharacterCount(str, char) {
+  let count = 0;
+  for (let i = 0; i <= str.length; i++) {
+    if (str[i] === char) {
+      count += 1;
+    }
+  }
+  return count;
+}
+console.log(CharacterCount("BishalRauniyar", "a"));
+
+//Find First Non-Repeated Character
+function NonRepeatedChar(str) {
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (str.indexOf(char) === str.lastIndexOf(char)) {
+      return char;
+    }
+  }
+  return null; // Return null if no non-repeated character is found
+}
+
+console.log(NonRepeatedChar("abacddbec")); // 'e'
+console.log(NonRepeatedChar("aabbcc")); // null
+console.log(NonRepeatedChar("swiss")); // 'w'

@@ -2880,3 +2880,5 @@ function NonRepeatedChar(str) {
 console.log(NonRepeatedChar("abacddbec")); // 'e'
 console.log(NonRepeatedChar("aabbcc")); // null
 console.log(NonRepeatedChar("swiss")); // 'w'
+
+//end of today date 12/12/2024

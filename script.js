@@ -2957,3 +2957,216 @@ function fibonacci(n) {
     return s;
   }
 }
+console.log(fibonacci(5)); //[0, 1, 1, 2, 3, 5]
+console.log(fibonacci(10)); //[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+//JavaScript program to check whether a number is even or not.  using recursion
+function isEven(n) {
+  if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  } else if (n < 0) {
+    return isEven(-n);
+  } else {
+    return isEven(n - 2);
+  }
+}
+console.log(isEven(5)); //false
+console.log(isEven(4)); //true
+
+// Variables to control loop counters and character output
+// *****
+// ****
+// ***
+// **
+// *
+
+var x, y, chr;
+
+// Outer loop for rows
+for (x = 5; x >= 1; x--) {
+  chr = "";
+  // Inner loop for characters in each row
+  for (y = 1; y <= x; y++) {
+    // Accumulate asterisks in the 'chr' variable
+    chr = chr + "*";
+  }
+
+  // Print the accumulated characters for the current row
+  console.log(chr);
+
+  // Reset 'chr' for the next row
+}
+
+//JavaScript program to sum 3 and 5 multiples under 100000.
+function sumMultiples() {
+  let sum = 0;
+  for (let i = 0; i < 100000; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+console.log(sumMultiples()); // 2333316668
+
+// JavaScript function that fetches data from multiple  APIs concurrently and returns a combined result using Promises and 'Promise.all()'.
+
+const API_URL1 = "https://jsonplaceholder.typicode.com/posts/1";
+const API_URL2 = "https://jsonplaceholder.typicode.com/posts/2";
+
+const fetchData = async () => {
+  try {
+    const [response1, response2] = await Promise.all([
+      fetch(API_URL1),
+      fetch(API_URL2),
+    ]);
+    const data1 = await response1.json();
+    const data2 = await response2.json();
+    return { data1, data2 };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+//API Fetching
+
+const apipractice = "https://jsonplaceholder.typicode.com/todos/1";
+fetch(apipractice)
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error fetching data:", error));
+
+// Function to fetch data from the API
+async function fetchData() {
+  try {
+    // Make the API request
+    const response = await fetch(apiEndpoint);
+
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    // Parse the JSON data
+    const data = await response.json();
+
+    // Log the data to the console
+    console.log(data);
+  } catch (error) {
+    // Handle any errors
+    console.error("There was a problem with the fetch operation:", error);
+  }
+}
+
+// Call the fetchData function
+fetchData();
+
+//// oop conceprts
+
+// JavaScript program to create a class called "Person" with properties for name, age and country. Include a method to display the person's details. Create two instances of the 'Person' class and display their details.
+class person {
+  constructor(name, age, country) {
+    this.name = name;
+    this.age = age;
+    this.country = country;
+  }
+
+  display() {
+    console.log(`Name=${this.name}`);
+    console.log(`Age =${this.age}`);
+    console.log(`Country=${this.country}`);
+  }
+}
+person1 = new person("Bishal", 23, "Nepal");
+person2 = new person("Sujan", 24, "Nepal");
+
+person1.display();
+person2.display();
+
+//JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.
+
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+  area() {
+    return this.width * this.height;
+  }
+  perimeter() {
+    return 2 * (this.width + this.height);
+  }
+}
+
+const Rectangle1 = new Rectangle(5, 6);
+const Rectangle2 = new Rectangle(10, 12);
+
+console.log("Area of rectangle 1 is " + Rectangle1.area());
+console.log("Perimeter of rectangle 1 is " + Rectangle1.perimeter());
+console.log("Area of rectangle 2 is " + Rectangle2.area());
+console.log("Perimeter of rectangle 2 is " + Rectangle2.perimeter());
+
+//Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display  vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.
+
+class Vehicle {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+  display() {
+    console.log(`Make=${this.make}`);
+    console.log(`Model=${this.model}`);
+    console.log(`Year=${this.year}`);
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make, model, year, doors) {
+    super(make, model, year);
+    this.doors = doors;
+  }
+  display() {
+    super.display();
+    console.log(`Doors=${this.doors}`);
+  }
+}
+
+const car1 = new Car("Toyota", "corolla", 2020, 4);
+car1.display();
+
+//Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+
+class BankAccount {
+  constructor(accountNumber, balance) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+  display() {
+    console.log(`Account Number: ${this.accountNumber}`);
+    console.log(`Balance: ${this.balance}`);
+  }
+  deposit(amount) {
+    this.balance += amount;
+    console.log(`Deposited: ${amount}`);
+  }
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log("Insufficient balance");
+    } else {
+      this.balance -= amount;
+      console.log(`Withdrawn: ${amount}`);
+    }
+  }
+}
+
+const account1 = new BankAccount(123456, 5000);
+account1.display();
+account1.deposit(2000);
+account1.display();
+account1.withdraw(3000);
+account1.display();
+account1.withdraw(5000);
+account1.display();

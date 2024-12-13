@@ -3085,7 +3085,9 @@ person2 = new person("Sujan", 24, "Nepal");
 person1.display();
 person2.display();
 
-//JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.
+//JavaScript program to create a class called 'Rectangle' with properties for width and height.
+// Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class
+// and calculate its area and perimeter.
 
 class Rectangle {
   constructor(width, height) {
@@ -3108,7 +3110,9 @@ console.log("Perimeter of rectangle 1 is " + Rectangle1.perimeter());
 console.log("Area of rectangle 2 is " + Rectangle2.area());
 console.log("Perimeter of rectangle 2 is " + Rectangle2.perimeter());
 
-//Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display  vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.
+//Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year.
+//  Include a method to display  vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class
+//  and includes an additional property for the number of doors. Override the display method to include the number of doors.
 
 class Vehicle {
   constructor(make, model, year) {
@@ -3137,7 +3141,9 @@ class Car extends Vehicle {
 const car1 = new Car("Toyota", "corolla", 2020, 4);
 car1.display();
 
-//Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+//Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance.
+//  Include methods to deposit and withdraw money from the account.
+// Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
 
 class BankAccount {
   constructor(accountNumber, balance) {
@@ -3170,3 +3176,10 @@ account1.withdraw(3000);
 account1.display();
 account1.withdraw(5000);
 account1.display();
+
+const account2 = new BankAccount(654321, 10000);
+account2.display();
+account2.deposit(5000);
+account2.display();
+account2.withdraw(15000);
+account2.display();

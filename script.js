@@ -2882,3 +2882,78 @@ console.log(NonRepeatedChar("aabbcc")); // null
 console.log(NonRepeatedChar("swiss")); // 'w'
 
 //end of today date 12/12/2024
+
+//Starting date 13/12/2024
+
+// javascript program to return the number that is bigger than the number in the array
+function biggerNumber(arr, num) {
+  return arr.filter((number) => number >= num);
+}
+console.log(biggerNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], 5)); //[5,6,7,8,9]
+console.log(biggerNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); //[3,4,5,6,7,8,9]
+
+//Recursions
+
+// JavaScript program to calculate the factorial of a number using recursion.
+function factorials(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factorials(n - 1);
+}
+console.log(factorials(5));
+
+// JavaScript program to find the greatest common divisor (GCD) of two positive numbers using recursion.
+var gcd = function (a, b) {
+  // Base case: if b is 0, then GCD is a.
+  if (!b) {
+    return a;
+  }
+
+  // Recursive case: calculate GCD using the remainder (a % b).
+  return gcd(b, a % b);
+};
+console.log(gcd(336, 360));
+console.log(gcd(2154, 458));
+
+//JavaScript program to get integers in the range (x, y) using recursion.
+function range(x, y) {
+  if (y - x === 2) {
+    return [x + 1];
+  } else {
+    var list = range(x, y - 1);
+    list.push(y - 1);
+    return list;
+  }
+}
+console.log(range(2, 9)); //[3,4,5,6,7,8]
+
+// JavaScript program to compute the sum of an array of integers using recursion.
+function sumOfArray(arr) {
+  if (arr.length === 1) {
+    return arr[0];
+  } else {
+    return arr[0] + sumOfArray(arr.slice(1));
+  }
+}
+
+// JavaScript program to compute the exponent of a number using recursion.
+//// JavaScript program to compute the exponent of a number using recursion.
+function expo(base, power) {
+  if (power === 0) {
+    return 1;
+  }
+  return base * expo(base, power - 1);
+}
+console.log(expo(5, 3));
+
+//Write a JavaScript program to get the first n Fibonacci numbers.
+function fibonacci(n) {
+  if (n === 1) {
+    return [0, 1];
+  } else {
+    var s = fibonacci(n - 1);
+    s.push(s[s.length - 1] + s[s.length - 2]);
+    return s;
+  }
+}

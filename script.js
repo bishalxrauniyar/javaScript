@@ -3183,3 +3183,31 @@ account2.deposit(5000);
 account2.display();
 account2.withdraw(15000);
 account2.display();
+
+//Write a JavaScript program that creates a class called 'Shape' with properties for color and filled.
+//  Include a method to display the shape details. Create a subclass called 'Circle' that inherits from the 'Shape' class
+//  and includes an additional property for radius. Override the display method to include the radius.
+class Shape {
+  constructor(color, filled) {
+    this.color = color;
+    this.filled = filled;
+  }
+  display() {
+    console.log(`Color: ${this.color}`);
+    console.log(`Filled: ${this.filled}`);
+  }
+}
+class Circle extends Shape {
+  constructor(color, filled, radius) {
+    super(color, filled);
+    this.radius = radius;
+  }
+  display() {
+    super.display();
+    console.log(`Radius: ${this.radius}`);
+  }
+}
+const circle1 = new Circle("red", true, 5);
+circle1.display();
+const circle2 = new Circle("blue", false, 10);
+circle2.display();

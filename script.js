@@ -3211,3 +3211,5 @@ const circle1 = new Circle("red", true, 5);
 circle1.display();
 const circle2 = new Circle("blue", false, 10);
 circle2.display();
+const circle3 = new Circle("green", true, 15);
+circle3.display();

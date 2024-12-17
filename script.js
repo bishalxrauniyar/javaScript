@@ -3213,3 +3213,21 @@ const circle2 = new Circle("blue", false, 10);
 circle2.display();
 const circle3 = new Circle("green", true, 15);
 circle3.display();
+
+// working with api
+// JavaScript program to fetch data from an API and display it in the console.
+const API_URL = "https://jsonplaceholder.typicode.com/posts/1";
+fetch(API_URL)
+  .then((response) => {
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json(); // Parse the JSON response
+  })
+  .then((data) => {
+    console.log(data); // Work with the data
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });

@@ -14,12 +14,64 @@
     <button id="decrement">Decrement</button>
     <button id="reset">Reset</button>
 
+    <script>
+      var count = 0;
+      document.getElementById("counter").innerHTML = count;
+      increment.onclick = function () {
+        count += 1;
+        document.getElementById("counter").innerHTML = count;
+      };
+      decrement.onclick = function () {
+        if (count > 0) {
+          count -= 1;
+          document.getElementById("counter").innerHTML = count;
+        }
+      };
+      reset.onclick = function () {
+        count = 0;
+        document.getElementById("counter").innerHTML = count;
+      };
+    </script>
+
     <!-- program to calculate multiplication and division of two numbers -->
     <h2>Calculator</h2>
     <input type="number" id="num1" placeholder="Enter first number" />
     <input type="number" id="num2" placeholder="Enter second number" />
     <input type="button" onClick="multiply()" value="Multiply" />
     <input type="button" onClick="divide()" value="Divide" />
+
+    <script>
+      //program to calculate multiplication and division of two numbers
+      function multiply() {
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        if (num1 === "" || num2 === "") {
+          document.getElementById("result").innerHTML =
+            "Please enter both numbers.";
+          return;
+        }
+        var result = num1 * num2;
+        document.getElementById("result").innerHTML = result;
+      }
+
+      function divide() {
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        if (num1 === "" || num2 === "") {
+          document.getElementById("result").innerHTML =
+            "Please enter both numbers.";
+          return;
+        }
+        if (num2 == 0) {
+          document.getElementById("result").innerHTML =
+            "Cannot divide by zero.";
+          return;
+        }
+        var result = num1 / num2;
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+
     <p>The result is</p>
     <p id="result"></p>
 
@@ -148,7 +200,7 @@
           var email = document.getElementById("email").value;
           var password = document.getElementById("password").value;
 
-          if (name === "") {
+          if (name === "  ") {
             document.getElementById("nameError").innerHTML = "Name is required";
             event.preventDefault();
           } else {
@@ -174,10 +226,7 @@
     </script>
 
     <!-- a JavaScript program to implement a toggle switch that changes its state when clicked. -->
-    <h2>
-      JavaScript program to implement a toggle switch that changes its state
-      when clicked.
-    </h2>
+
     <div
       id="toggleSwitch"
       style="
@@ -207,5 +256,98 @@
         }
       });
     </script>
+
+    <h1>Form Validation Practice</h1>
+
+    <form aciton ="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+      <div class="formdesign" id="name">
+          Name: <input type="text" name="fname" required><b><span class="formerror"> </span></b>
+      </div>
+
+      <div class="formdesign" id="email">
+          Email: <input type="email" name="femail" required><b><span class="formerror"> </span></b>
+      </div>
+
+      <div class="formdesign" id="phone">
+          Phone: <input type="phone" name="fphone" required><b><span class="formerror"></span></b>
+      </div>
+
+      <div class="formdesign" id="pass">
+          Password: <input type="password" name="fpass" required><b><span class="formerror"</span></b>
+      </div>
+
+      <div class="formdesign" id="cpass">
+          Confirm Password: <input type="password" name="fcpass" required><b><span class="formerror"></span></b>
+      </div>
+
+      <input class="but" type="submit" value="Submit">
+
+  </form>
+  <script>
+
+function clearErrors(){
+
+errors = document.getElementsByClassName('formerror');
+for(let item of errors)
+{
+    item.innerHTML = "";
+}
+
+
+}
+function seterror(id, error){
+//sets error inside tag of id 
+element = document.getElementById(id);
+element.getElementsByClassName('formerror')[0].innerHTML = error;
+
+}
+
+function validateForm(){
+var returnval = true;
+clearErrors();
+
+//perform validation and if validation fails, set the value of returnval to false
+var name = document.forms['myForm']["fname"].value;
+if (name.length<5){
+    seterror("name", "*Length of name is too short");
+    returnval = false;
+}
+
+if (name.length == 0){
+    seterror("name", "*Length of name cannot be zero!");
+    returnval = false;
+}
+
+var email = document.forms['myForm']["femail"].value;
+if (email.length>15){
+    seterror("email", "*Email length is too long");
+    returnval = false;
+}
+
+var phone = document.forms['myForm']["fphone"].value;
+if (phone.length != 10){
+    seterror("phone", "*Phone number should be of 10 digits!");
+    returnval = false;
+}
+
+var password = document.forms['myForm']["fpass"].value;
+if (password.length < 6){
+
+    // Quiz: create a logic to allow only those passwords which contain atleast one letter, one number and one special character and one uppercase letter
+    seterror("pass", "*Password should be atleast 6 characters long!");
+    returnval = false;
+}
+
+var cpassword = document.forms['myForm']["fcpass"].value;
+if (cpassword != password){
+    seterror("cpass", "*Password and Confirm password should match!");
+    returnval = false;
+}
+
+return returnval;
+}
+
+
+  </script>
   </body>
 </html>

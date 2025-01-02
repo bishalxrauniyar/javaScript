@@ -229,9 +229,9 @@ function checkfifty(a, b) {
     return true;
   } else return false;
 }
-console.log(checkfifty(10, 20));
-console.log(checkfifty(10, 50));
-console.log(checkfifty(10, 40));
+console.log(checkfifty(10, 20)); //false
+console.log(checkfifty(10, 50)); //true
+console.log(checkfifty(10, 40)); //true
 
 //JavaScript program to check whether a given integer is within 20 of 100 or 400
 function checkhundred(x) {

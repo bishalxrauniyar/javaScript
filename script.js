@@ -669,7 +669,7 @@ function ab_Check(str) {
 
 // Log the result of calling ab_Check with the given strings to the console
 console.log(ab_Check("hainsBreak"));
-console.log(ab_Check("Chainsbreak"));
+console.log(ab_Check("Chainsbreak0"));
 console.log(ab_Check("ChainsBreak"));
 
 //program to count the number of vowels in a given string.
@@ -737,6 +737,8 @@ function first_half(str) {
   }
   return str;
 }
+console.log(first_half("JavaScript")); // "JavaS"
+console.log(first_half("Pyt&hon")); // "Pyt&hon"
 
 // remove first and last character of the string
 function first_last(str) {
@@ -748,8 +750,8 @@ console.log(first_last("Bishal")); // "isha"
 function concat(str1, str2) {
   return str1.substring(1, str1.length) + str2.substring(1, str2.length);
 }
-console.log(concat("bishal", "rauniyar"));
-console.log(concat("javascript", "programming"));
+console.log(concat("bishal", "rauniyar")); // "ishalrauniyar"
+console.log(concat("javascript", "programming")); // "avascriptrogramming"
 
 // program to move the last three characters to the start of a given string. The string length must be greater than or equal to three.
 function move(str) {
@@ -760,14 +762,15 @@ function move(str) {
     );
   }
 }
-console.log(move("rauniyar"));
+console.log(move("rauniyar")); // "yarrauin"
 
 // program to create a string using the middle three characters of a given string of odd length. The string length must be greater than or equal to three.
 function middle_three(str) {
-  if (str.length % 2 !== 0) {
+  if (str.length % 2 !== 0 && str.length >= 3) {
     return str.substring(str.length / 2 - 1, str.length / 2 + 2);
   }
 }
+console.log(middle_three("bishall")); // "sha"
 
 //program to concatenate two strings and return the result. If the length of the strings does not match, then remove the characters from the longer string.
 function concat(str1, str2) {

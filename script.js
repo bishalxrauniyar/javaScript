@@ -20,10 +20,12 @@ reset.onclick = function () {
 
 // Get the current date and time
 var today = new Date();
-
+console.log(today);
+//OutPut: 2025-01-17T05:01:58.139Z
 // Get the day of the week (0-6, where 0 is Sunday and 6 is Saturday)
 var day = today.getDay();
-
+console.log(day);
+//OUTPUT : 5 (Friday)
 // Array of day names
 var daylist = [
   "Sunday",
@@ -40,8 +42,11 @@ console.log("Today is: " + daylist[day] + ".");
 
 // Get the current hour, minute, and second
 var hour = today.getHours();
+console.log(hour);
 var minute = today.getMinutes();
+console.log(minute);
 var second = today.getSeconds();
+console.log(second);
 
 // Determine if it's AM or PM
 var prepand = hour >= 12 ? " PM " : " AM ";
@@ -118,7 +123,7 @@ today = dd + "/" + mm + "/" + yyyy;
 console.log(today);
 
 //guess the number game (between 1 and 10)
-var num = math.ceil(math.random() * 10);
+var num = Math.ceil(Math.random() * 10);
 console.log(num);
 var guess = prompt("Guess the number between 1 and 10");
 if (guess == num) {
@@ -137,11 +142,11 @@ for (var year = 2014; year <= 2050; year++) {
 //rotate string from left to right
 
 var str = "bishal";
-var n = 2;
+var n = 1;
 var left = str.substring(0, n);
 var right = str.substring(n, str.length);
 console.log(right + left);
-
+//output: ishalb
 //check if the year given is a leap year or not
 var year = prompt("Enter the year");
 function leapyear(year) {
@@ -3011,57 +3016,57 @@ function sumMultiples() {
 }
 console.log(sumMultiples()); // 2333316668
 
-// JavaScript function that fetches data from multiple  APIs concurrently and returns a combined result using Promises and 'Promise.all()'.
+// // JavaScript function that fetches data from multiple  APIs concurrently and returns a combined result using Promises and 'Promise.all()'.
 
-const API_URL1 = "https://jsonplaceholder.typicode.com/posts/1";
-const API_URL2 = "https://jsonplaceholder.typicode.com/posts/2";
+// const API_URL1 = "https://jsonplaceholder.typicode.com/posts/1";
+// const API_URL2 = "https://jsonplaceholder.typicode.com/posts/2";
 
-const fetchData = async () => {
-  try {
-    const [response1, response2] = await Promise.all([
-      fetch(API_URL1),
-      fetch(API_URL2),
-    ]);
-    const data1 = await response1.json();
-    const data2 = await response2.json();
-    return { data1, data2 };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
+// const fetchData = async () => {
+//   try {
+//     const [response1, response2] = await Promise.all([
+//       fetch(API_URL1),
+//       fetch(API_URL2),
+//     ]);
+//     const data1 = await response1.json();
+//     const data2 = await response2.json();
+//     return { data1, data2 };
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//   }
+// };
 
 //API Fetching
 
-const apipractice = "https://jsonplaceholder.typicode.com/todos/1";
-fetch(apipractice)
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error("Error fetching data:", error));
+// const apipractice = "https://jsonplaceholder.typicode.com/todos/1";
+// fetch(apipractice)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error("Error fetching data:", error));
 
-// Function to fetch data from the API
-async function fetchData() {
-  try {
-    // Make the API request
-    const response = await fetch(apiEndpoint);
+// // Function to fetch data from the API
+// async function fetchData() {
+//   try {
+//     // Make the API request
+//     const response = await fetch(apiEndpoint);
 
-    // Check if the request was successful
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+//     // Check if the request was successful
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
 
-    // Parse the JSON data
-    const data = await response.json();
+//     // Parse the JSON data
+//     const data = await response.json();
 
-    // Log the data to the console
-    console.log(data);
-  } catch (error) {
-    // Handle any errors
-    console.error("There was a problem with the fetch operation:", error);
-  }
-}
+//     // Log the data to the console
+//     console.log(data);
+//   } catch (error) {
+//     // Handle any errors
+//     console.error("There was a problem with the fetch operation:", error);
+//   }
+// }
 
-// Call the fetchData function
-fetchData();
+// // Call the fetchData function
+// fetchData();
 
 //// oop conceprts
 

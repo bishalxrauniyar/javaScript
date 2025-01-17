@@ -117,9 +117,10 @@
       JavaScript program that creates a button and add a click event listener to
       toggle the background color of the page.
     </h2>
-    <button id="Toggle">Toggle Background</button>
+    <button class="Toggle">Toggle Background</button>
+    <!-- <button class="Toggle">Toggle Background</button> -->
     <script>
-      document.getElementById("Toggle").addEventListener("click", function () {
+      document.getElementsByClassName("Toggle").addEventListener("click", function () {
         if (document.body.style.backgroundColor === "red") {
           document.body.style.backgroundColor = "white";
         } else {
@@ -257,6 +258,17 @@
       });
     </script>
 
+
+<!-- 
+
+
+
+
+
+
+ -->
+
+
     <h1>Form Validation Practice</h1>
 
     <form aciton ="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
@@ -331,6 +343,10 @@ if (phone.length != 10){
 }
 
 var password = document.forms['myForm']["fpass"].value;
+    const hasUpperCase = /[A-Z]/;
+    const hasLowerCase = /[a-z]/;
+    const hasNumbers = /\d/;
+    const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/;
 if (password.length < 6){
 
     // Quiz: create a logic to allow only those passwords which contain atleast one letter, one number and one special character and one uppercase letter
@@ -343,7 +359,25 @@ if (cpassword != password){
     seterror("cpass", "*Password and Confirm password should match!");
     returnval = false;
 }
+if(hasLowerCase.test(password)){
+  returnval = false;
+  return "Password must contain at least one uppercase letter.";
+}
+if(hasLowerCase.test(password)){
+  returnval = false;
+  return "Password must contain at least one lowercase letter."
 
+}
+if(hasNumbers.test(password)){
+  returnval = false;
+  return "Password must have at least one number ";
+
+}
+if (hasSpecialChars(password)){
+  returnval = false;
+  return "password must have at least one special character";
+
+}
 return returnval;
 }
 

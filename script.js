@@ -580,7 +580,7 @@ console.log(reverse("JavaScript")); // "tpircSavaJ"
 
 // 2nd approach
 function reverse(str) {
-  return str.split("").reverse();
+  return str.split("").reverse().splice(0, str.length).join("");
 }
 console.log(reverse("BISHAL")); // "LAHSIB"
 

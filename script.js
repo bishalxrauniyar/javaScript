@@ -1096,46 +1096,9 @@ function nextalpha(str) {
 
 console.log(nextalpha("bishal")); // "cjtibm"
 console.log(nextalpha("BISHAL")); // "CJTIBM"
-
-// 2nd approach
-function nextalpha(str) {
-  return str
-    .split("")
-    .map((char) => {
-      let charCode = char.charCodeAt(0);
-      if (charCode >= 65 && charCode <= 90) {
-        // Uppercase letters
-        return String.fromCharCode(((charCode - 65 + 1) % 26) + 65);
-      } else if (charCode >= 97 && charCode <= 122) {
-        // Lowercase letters
-        return String.fromCharCode(((charCode - 97 + 1) % 26) + 97);
-      } else {
-        // Non-alphabetic characters remain the same
-        return char;
-      }
-    })
-    .join("");
-}
-console.log(nextalpha("bishal")); // "cjtibm"
-console.log(nextalpha("BISHAL")); // "CJTIBM"
-
-// program to divide a given array of positive integers into two parts. First element belongs to the first part,
-//  second element belongs to the second part, and third element belongs to the first part and so on.
-//  Now compute the sum of two parts and store it in an array of size two.
-function dividearray(array) {
-  var result = [0, 0];
-  for (let i = 0; i < array.length; i++) {
-    if (i % 2 === 0) {
-      result[0] += array[i];
-    } else {
-      result[1] += array[i];
-    }
-  }
-  return result;
-}
+console.log(nextalpha("JavaScriptz")); //KbwbTdsjqua
 
 // Write a JavaScript program to find the types of a given angle.
-
 // Types of angles:
 // Acute angle: An angle between 0 and 90 degrees.
 // Right angle: An 90 degree angle.
@@ -1156,28 +1119,6 @@ function findangle(angle) {
 }
 findangle();
 
-//JavaScript program to determine if two arrays of integers of the same length are similar. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.
-function similar_arrays(arr1, arr2) {
-  if (arr1.length !== arr2.length) return false;
-
-  let diff = [];
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      diff.push([arr1[i], arr2[i]]);
-    }
-  }
-
-  if (diff.length === 0) return true; // Arrays are already identical
-  if (diff.length !== 2) return false; // More than one swap needed
-
-  // Check if swapping the two differing pairs makes the arrays identical
-  return diff[0][0] === diff[1][1] && diff[0][1] === diff[1][0];
-}
-
-console.log(similar_arrays([1, 2, 3], [1, 3, 2])); // true
-console.log(similar_arrays([1, 2, 3], [1, 3, 4])); // false
-console.log(similar_arrays([10, 20, 30, 40], [10, 30, 20, 40])); // true
-
 //JavaScript program that takes two integers and a divisor. If the given divisor divides both integers and does not divide either, two specified integers are similar. Check whether two integers are similar or not.
 function similar(x, y, divisor) {
   return (
@@ -1186,7 +1127,7 @@ function similar(x, y, divisor) {
   );
 }
 console.log(similar(10, 25, 5)); // true
-console.log(similar(10, 20, 10)); // false
+console.log(similar(10, 20, 10)); // True
 console.log(similar(10, 20, 4)); // false
 
 // Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.
@@ -1195,7 +1136,8 @@ function replace(x, y, z) {
   return x + y === z || x - y === z || x * y === z || x / y === z;
 }
 console.log(replace(10, 30, 300)); // true
-console.log(replace(10, 30, 40)); // false
+console.log(replace(10, 30, 40)); // True
+console.log(replace(10, 30, 3)); // False
 
 // Write a JavaScript program to find the kth greatest element in a given array of integers.
 

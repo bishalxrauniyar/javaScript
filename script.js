@@ -1283,27 +1283,6 @@ function checkElements(arr1, arr2) {
 }
 console.log(checkElements([1, 2, 3, 4, 5], [5, 6, 7, 8, 9])); // true
 
-//program to find two elements of an array such that their absolute difference is not larger than a given integer. However, it is as close as possible to the integer.
-function closest(arr, num) {
-  let closest = Infinity;
-  let pair = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      let diff = Math.abs(arr[i] - arr[j]);
-
-      if (diff < closest && diff <= num) {
-        closest = diff;
-        pair = [arr[i], arr[j]];
-      }
-    }
-  }
-
-  return pair;
-}
-console.log(closest([1, 2, 3, 4, 5], 2)); // [1, 2]
-console.log(closest([1, 2, 3, 4, 5], 1)); // [4, 5]
-
 //a JavaScript program to find the number of times to replace a given number with the sum of its digits. This is until it converts to a single-digit number.
 function sumOfDigits(num) {
   let sum = 0;

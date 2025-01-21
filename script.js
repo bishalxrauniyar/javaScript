@@ -721,6 +721,8 @@ function string_copies(str, n) {
   // Use the repeat method to replicate the string 'n' times
   else return str.repeat(n);
 }
+console.log(string_copies("JavaScript", 2)); // "JavaScriptJavaScript"
+
 // program to create an updated string of 4 copies of the last 3 characters of a given original string. The string length must be 3 and above.
 function string_copies(str) {
   if (str.length < 3) {
@@ -751,7 +753,7 @@ console.log(first_last("Bishal")); // "isha"
 function concat(str1, str2) {
   return str1.substring(1, str1.length) + str2.substring(1, str2.length);
 }
-console.log(concat("bishal", "rauniyar")); // "ishalrauniyar"
+console.log(concat("bishal", "rauniyar")); // "ishalauniyar"
 console.log(concat("javascript", "programming")); // "avascriptrogramming"
 
 // program to move the last three characters to the start of a given string. The string length must be greater than or equal to three.
@@ -770,8 +772,9 @@ function middle_three(str) {
   if (str.length % 2 !== 0 && str.length >= 3) {
     return str.substring(str.length / 2 - 1, str.length / 2 + 2);
   }
+  return false;
 }
-console.log(middle_three("bishall")); // "sha"
+console.log(middle_three("bishallll")); // "sha"
 
 //program to concatenate two strings and return the result. If the length of the strings does not match, then remove the characters from the longer string.
 function concat(str1, str2) {
@@ -824,7 +827,7 @@ function removeP(str) {
 }
 
 console.log(removeP("Panda")); // "and"
-console.log(removeP("Pineapple")); // "ineappl"
+console.log(removeP("Pineapplp")); // "ineappl"
 console.log(removeP("Apple")); // "Apple"
 
 // program to create a new string using the first and last n characters from a given string. The string length must be larger than or equal to n.
@@ -894,12 +897,6 @@ function reversearray(array) {
 }
 console.log(reversearray([5, 6, 7]));
 
-// 3rd approach usng map
-function reversearray(array) {
-  return array.map((elements, i, arr) => arr[arr.length - 1 - i]);
-}
-console.log(reversearray([5, 6, 7]));
-
 // program to find the largest value between the first and last elements and set all the other elements to that value. Display the updated array.
 //1st approach
 function replaceupdate(array) {
@@ -909,41 +906,15 @@ function replaceupdate(array) {
       newArray[i] = array[0];
     }
   } else {
-    if (array[0] > array[array.length - 1]) {
-      newArray[i] = array[array.length - 1] = newarray[i];
+    if (array[0] < array[array.length - 1]) {
+      for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[array.length - 1];
+      }
     }
+    return newArray;
   }
-  return newArray;
 }
-console.log(replaceupdate([5, 2, 3]));
-
-//2nd approach
-function all_max(nums) {
-  // Determine the maximum value between the first and third elements using a ternary operator
-  var max_val = nums[0] > nums[2] ? nums[0] : nums[2];
-
-  // Set all elements in the array to the determined maximum value
-  nums[0] = max_val;
-  nums[1] = max_val;
-  nums[2] = max_val;
-
-  // Return the modified array
-  return nums;
-}
-
-// Call the function with sample arguments and log the results to the console
-console.log(all_max([20, 30, 40])); // Output: [40, 40, 40]
-console.log(all_max([-7, -9, 0])); // Output: [0, 0, 0]
-console.log(all_max([12, 10, 3])); // Output: [12, 12, 12]
-
-// 3rd approach
-function replaceupdate(array) {
-  var max = Math.max(array[0], array[array.length - 1]);
-  for (var i = 0; i < array.length; i++) {
-    array[i] = max;
-  }
-  return array;
-}
+console.log(replaceupdate([5, 2, 7]));
 
 // program to create an array taking the middle elements of the two arrays of integer and each length 3.
 function midtwo(array1, array2) {
@@ -951,7 +922,7 @@ function midtwo(array1, array2) {
   newarray.push(array1[1], array2[1]);
   return newarray;
 }
-console.log(midtwo([1, 2, 3], [4, 5, 6]));
+console.log(midtwo([1, 2, 3], [4, 5, 6])); // [2, 5]
 
 //  program to create an array by taking the first and last elements from a given array of integers. The length must be larger than or equal to 1.
 function firstlastarray(array) {
@@ -961,7 +932,7 @@ function firstlastarray(array) {
   }
   return newarray;
 }
-console.log(firstlastarray([1, 2, 3]));
+console.log(firstlastarray([1, 2, 3])); // [1, 3]
 
 //program to test whether an array of integers of length 2 contains 1 or 3.
 function oneorthree(array) {
@@ -977,19 +948,7 @@ console.log(oneorthree([2, 2])); // false
 console.log(oneorthree([1, 2])); // true
 console.log(oneorthree([3, 2])); // true
 
-//program to test whether an array of integers of length 2 contains 1 or 3.
-// 1st approach
-function oneorthree(array) {
-  if (array.length === 2) {
-    if (array[0] === 1 || array[0] === 3 || array[1] === 1 || array[1] === 3) {
-      return true;
-    }
-    false;
-  }
-  return false;
-}
-console.log(oneorthree([2, 2]));
-
+//program to test whether an array of integers of length 2 contains 1 or 3
 // 2nd approach
 // Function checks if the array 'nums' contains either 1 or 3
 function contains13(nums) {
@@ -1049,7 +1008,7 @@ function contains3040(nums) {
   return false;
 }
 
-console.log(contains3040([30, 40])); // false
+console.log(contains3040([30, 40, 30])); // false
 console.log(contains3040([30, 30])); // true
 console.log(contains3040([40, 40])); // true
 console.log(contains3040([30])); // false
@@ -1091,7 +1050,7 @@ console.log(add_two_digits(25)); // Output: 7 (2 + 5)
 console.log(add_two_digits(50)); // Output: 5 (5 + 0)
 
 //JavaScript program to add two positive integers without carrying.
-// JavaScript program to add two positive integers without carrying.
+
 function addWithoutCarrying(a, b) {
   let result = 0;
   let place = 1;
@@ -1113,21 +1072,6 @@ function addWithoutCarrying(a, b) {
 console.log(addWithoutCarrying(123, 456)); // 579
 console.log(addWithoutCarrying(555, 555)); // 000
 console.log(addWithoutCarrying(123, 789)); // 802
-
-// Function to find the longest string(s) in an array
-function longest_string(str_ara) {
-  var max = str_ara[0].length;
-  // Initialize max length with the length of the first string
-  str_ara.map((v) => (max = Math.max(max, v.length)));
-  // Update max with the maximum length in the array using the map function
-  result = str_ara.filter((v) => v.length == max);
-  // Filter out strings that have the maximum length
-  return result;
-  // Return the array of longest strings
-}
-
-// Example usage
-console.log(longest_string(["a", "aa", "aaa", "aaaaa", "aaaa"]));
 
 // JavaScript program to replace each character in a given string with the next in the English alphabet.
 // Note: 'a' will be replace by 'b' or 'z' would be replaced by 'a'.

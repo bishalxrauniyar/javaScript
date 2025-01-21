@@ -1283,66 +1283,6 @@ function checkElements(arr1, arr2) {
 }
 console.log(checkElements([1, 2, 3, 4, 5], [5, 6, 7, 8, 9])); // true
 
-//JavaScript program to check whether a given string contains only Latin letters and no two uppercase and no two lowercase letters are in adjacent positions.
-function checkLatinLetters(str) {
-  for (let i = 0; i < str.length; i++) {
-    if (!/[a-zA-Z]/.test(str[i])) {
-      return false;
-    }
-
-    if (/[a-z]/.test(str[i]) && /[a-z]/.test(str[i + 1])) {
-      return false;
-    }
-
-    if (/[A-Z]/.test(str[i]) && /[A-Z]/.test(str[i + 1])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-console.log(checkLatinLetters("abcDEF")); // true
-
-// //JavaScript program to find the number of inversions of a given array of integers.
-// Note: Two elements of the array a stored at positions i and j form an inversion if a[i] > a[j] and i < j.
-function countInversions(arr) {
-  let count = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] > arr[j]) {
-        count++;
-      }
-    }
-  }
-
-  return count;
-}
-
-// a JavaScript program to find the maximum number of a given positive integer by deleting exactly one digit of the given number.
-function digit_delete(num) {
-  var result = 0,
-    num_digits = [];
-  while (num) {
-    num_digits.push(num % 10);
-    num = Math.floor(num / 10);
-  }
-  for (var index_num = 0; index_num < num_digits.length; index_num++) {
-    var n = 0;
-    for (var i = num_digits.length - 1; i >= 0; i--) {
-      if (i !== index_num) {
-        n = n * 10 + num_digits[i];
-      }
-    }
-    result = Math.max(n, result);
-  }
-  return result;
-}
-
-console.log(digit_delete(100));
-console.log(digit_delete(10));
-console.log(digit_delete(1245));
-
 //program to find two elements of an array such that their absolute difference is not larger than a given integer. However, it is as close as possible to the integer.
 function closest(arr, num) {
   let closest = Infinity;

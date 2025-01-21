@@ -629,9 +629,9 @@ console.log(cap("javascript programming"));
 //application that transforms a provided numerical value into hours and minutes.
 
 function calculate(a) {
-  return Math.ceil(a / 60) - 1 + " Hours " + (a % 60) + " Min";
+  return Math.floor(a / 60) + " Hours " + (a % 60) + " Min";
 }
-console.log(calculate(120));
+console.log(calculate(125));
 console.log(calculate(245));
 
 //JavaScript program to convert letters of a given string alphabetically. split sort join
@@ -647,7 +647,8 @@ function ab_Check(str) {
 }
 
 // Log the result of calling ab_Check with the given strings to the console
-console.log(ab_Check("ChainsBreak"));
+console.log(ab_Check("ChabibbsBreak")); // true
+console.log(ab_Check("Chainsbreak")); // false
 
 //this code will not work if the characters are small or capital letter
 
@@ -668,11 +669,11 @@ function ab_Check(str) {
 }
 
 // Log the result of calling ab_Check with the given strings to the console
-console.log(ab_Check("hainsBreak"));
-console.log(ab_Check("Chainsbreak0"));
-console.log(ab_Check("ChainsBreak"));
+console.log(ab_Check("hainsBreak")); // true
+console.log(ab_Check("Chainsbreak0")); // true
+console.log(ab_Check("ChainsdBreak")); // false
 
-//program to count the number of vowels in a given string.
+//program to count the number of vowels in a given string. (indexOf capital O)
 function countVowels(str) {
   var count = 0;
   var vowels = "aeiouAEIOU";

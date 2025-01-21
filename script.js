@@ -1143,85 +1143,17 @@ console.log(replace(10, 30, 3)); // False
 
 function findKthGreatest(array, k) {
   // Sort the array in descending order
-  array.sort((a, b) => b - a);
+  array.sort((a, b) => a - b);
+  console.log(array);
 
   // Return the k-th greatest element
-  return array[k - 1];
+  return array[k - 1]; // as array index starts from 0
 }
 
 // Example usage
 console.log(findKthGreatest([1, 2, 3, 4, 5], 3)); // 3
-console.log(findKthGreatest([10, 20, 30, 40, 50], 2)); // 40
-console.log(findKthGreatest([5, 4, 3, 2, 1], 1)); // 5
-
-//a JavaScript program to find the maximum possible sum of some of its k consecutive numbers (numbers that follow each other in order) in a given array of positive integers.
-//1st approach
-function maxConsecutiveSum(arr, k) {
-  if (arr.length < k) {
-    return null; // If the array length is less than k, return null
-  }
-
-  let maxSum = 0;
-
-  // Calculate the sum of the first k elements
-  for (let i = 0; i < k; i++) {
-    maxSum += arr[i];
-  }
-
-  let currentSum = maxSum;
-
-  // Slide the window of k elements through the array
-  for (let i = k; i < arr.length; i++) {
-    currentSum += arr[i] - arr[i - k];
-    maxSum = Math.max(maxSum, currentSum);
-  }
-
-  return maxSum;
-}
-console.log(maxConsecutiveSum([1, 2, 3, 14, 5], 2)); // 19
-console.log(maxConsecutiveSum([2, 3, 5, 1, 6], 3)); // 12
-console.log(maxConsecutiveSum([9, 3, 5, 1, 7], 2)); // 12
-
-//2nd approach
-function maxConsecutiveSum(arr, k) {
-  if (arr.length < k) {
-    return null; // If the array length is less than k, return null
-  }
-
-  let maxSum = 0;
-
-  // Calculate the sum of the first k elements
-  for (let i = 0; i < k; i++) {
-    maxSum += arr[i];
-  }
-
-  let currentSum = maxSum;
-
-  // Slide the window of k elements through the array
-  for (let i = k; i < arr.length; i++) {
-    currentSum += arr[i] - arr[i - k];
-    maxSum = Math.max(maxSum, currentSum);
-  }
-
-  return maxSum;
-}
-console.log(maxConsecutiveSum([1, 2, 3, 14, 5], 2)); // 19
-console.log(maxConsecutiveSum([2, 3, 5, 1, 6], 3)); // 12
-console.log(maxConsecutiveSum([9, 3, 5, 1, 7], 2)); // 12
-
-//JavaScript program to find the maximum difference between any two adjacent elements of a given array of integers.
-function maxDifference(arr) {
-  let maxDiff = 0;
-
-  for (let i = 1; i < arr.length; i++) {
-    maxDiff = Math.max(maxDiff, Math.abs(arr[i] - arr[i - 1]));
-  }
-
-  return maxDiff;
-}
-console.log(maxDifference([1, 2, 3, 8, 9])); // 5
-console.log(maxDifference([1, 2, 3, 18, 9])); // 15
-console.log(maxDifference([13, 2, 3, 8, 9])); // 11
+console.log(findKthGreatest([10, 20, 30, 40, 50], 2)); // 20
+console.log(findKthGreatest([5, 4, 3, 2, 1], 1)); // 1
 
 //JavaScript program to find the maximum difference among all possible pairs of a given array of integers.
 function maxDifference(arr) {
@@ -1258,14 +1190,16 @@ function mostFrequent(arr) {
       element_having_max_freq = arr[i];
     }
   }
-
-  return element_having_max_freq;
+  console.log(
+    maxcount + " times the element " + element_having_max_freq + " is repeated"
+  );
+  // return element_having_max_freq;
 }
 console.log(mostFrequent([40, 50, 30, 40, 50, 30, 30]));
 
 //JavaScript program to replace all numbers with a specified number in an array of integers.
 function replaceNumbers(arr, num) {
-  return arr.map((el) => num);
+  return arr.map((e) => num);
 }
 console.log(replaceNumbers([1, 2, 3, 4, 5], 10)); // [10, 10, 10, 10, 10]
 console.log(replaceNumbers([10, 20, 30, 40, 50], 5)); // [5, 5, 5, 5, 5]
@@ -1298,25 +1232,30 @@ console.log(shortestPalindrome("bishal")); // "lahsibishal".
 
 //JavaScript program to change the case of the minimum number of letters to make a given string written in upper case or lower case.
 // Fox example "Write" will be write and "PHp" will be "PHP"
-function changeCase(str) {
-  let lowerCaseCount = 0;
-  let upperCaseCount = 0;
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[i].toLowerCase()) {
-      lowerCaseCount++;
+function minimizeCaseChange(str) {
+  // Count uppercase and lowercase letters
+  let upperCount = 0;
+  let lowerCount = 0;
+
+  for (let char of str) {
+    if (char === char.toUpperCase()) {
+      upperCount++;
     } else {
-      upperCaseCount++;
+      lowerCount++;
     }
   }
 
-  return lowerCaseCount < upperCaseCount
-    ? str.toLowerCase()
-    : str.toUpperCase();
+  // Convert to the case with the higher count
+  return upperCount > lowerCount ? str.toUpperCase() : str.toLowerCase();
 }
-console.log(changeCase("Write")); // "write"
-console.log(changeCase("PHp")); // "PHP"
-console.log(changeCase("bishal")); // "BIHSAL"
+
+// Test cases
+console.log(minimizeCaseChange("Write")); // "write"
+console.log(minimizeCaseChange("PHp")); // "PHP"
+console.log(minimizeCaseChange("JaVa")); // "java"
+console.log(minimizeCaseChange("ABC")); // "ABC"
+console.log(minimizeCaseChange("abc")); // "abc"
 
 //JavaScript program to check whether it is possible to rearrange the characters of a given string. This is in such a way that it will become equal to another given string.
 function rearrangeChars(str1, str2) {
@@ -1339,9 +1278,8 @@ function checkElements(arr1, arr2) {
     } else {
       j++;
     }
-
-    return false;
   }
+  return false;
 }
 console.log(checkElements([1, 2, 3, 4, 5], [5, 6, 7, 8, 9])); // true
 

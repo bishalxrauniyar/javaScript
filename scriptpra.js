@@ -58,3 +58,34 @@ console.log(v.slice(-8, -4)); //hnTh
 console.log(v.substring(0, 4)); //John
 console.log(v.toUpperCase()); //JOHNTHEDON
 console.log(v.toLowerCase()); //johnthedon
+
+// string concat ( + or concat())
+let text1 = "Hello" + " " + "World!";
+console.log(text1);
+let text2 = "Hello".concat(" ", "World!");
+console.log(text2);
+
+//The trim() method removes whitespace from both sides of a string:
+// only works for left and right whitespaces not for space in between words
+let text3 = "         bishal Rauniyar   ";
+let text4 = text3.trim();
+console.log(text4); //bishal Rauniyar
+
+//The trimStart() method works like trim(), but removes whitespace only from the start of a string.
+//The trimEnd() method works like trim(), but removes whitespace only from the end of a string.
+
+// The padStart() method is a string method.
+// To pad a number, convert the number to a string first.
+//The padStart() method pads a string from the start.
+let numb = 5;
+let text5 = numb.toString();
+let paddedStart = text5.padStart(4, "0");
+console.log(paddedStart); //0005
+
+//The padEnd() method pads a string from the end.
+let paddedEnd = text5.padEnd(4, "0");
+console.log(paddedEnd); //5000
+
+//The repeat() method returns a string with a number of copies of a string.
+let text6 = "codepixelzmeida";
+console.log(text6.repeat(2)); //codepixelzmeidacodepixelzmeida

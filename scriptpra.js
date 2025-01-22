@@ -39,3 +39,16 @@ const mySelf = new PersonNew("Johnny", "Rally", 22, "green");
 
 // events
 // <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+
+// Templates are strings enclosed in backticks (`This is a template string`).
+let text = `He's often called "Johnny"`;
+console.log(text);
+
+let v = "John"; // x is a string
+let y = new String("John"); // y is an object
+console.log(typeof v);
+console.log(typeof y);
+// here v ==== y false
+console.log(v === y);
+// here v ==== y True
+console.log(v == y);

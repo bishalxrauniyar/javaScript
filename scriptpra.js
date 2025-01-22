@@ -40,11 +40,7 @@ const mySelf = new PersonNew("Johnny", "Rally", 22, "green");
 // events
 // <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
 
-// Templates are strings enclosed in backticks (`This is a template string`).
-let text = `He's often called "Johnny"`;
-console.log(text);
-
-let v = "John"; // x is a string
+let v = "JohnTheDon"; // x is a string
 let y = new String("John"); // y is an object
 console.log(typeof v);
 console.log(typeof y);
@@ -52,3 +48,13 @@ console.log(typeof y);
 console.log(v === y);
 // here v ==== y True
 console.log(v == y);
+
+// The charAt() method returns the character at a specified index (position) in a string:
+console.log(v.charAt(0)); // J
+console.log(v.charCodeAt(0)); // 74
+console.log(v.slice(2, 5)); // hnT
+console.log(v.slice(-4)); // eDon
+console.log(v.slice(-8, -4)); //hnTh
+console.log(v.substring(0, 4)); //John
+console.log(v.toUpperCase()); //JOHNTHEDON
+console.log(v.toLowerCase()); //johnthedon

@@ -89,3 +89,24 @@ console.log(paddedEnd); //5000
 //The repeat() method returns a string with a number of copies of a string.
 let text6 = "codepixelzmeida";
 console.log(text6.repeat(2)); //codepixelzmeidacodepixelzmeida
+
+//By default, the replace() method replaces only the first match:
+let text7 = "Bishal Kumar";
+console.log(text7.replace("Kumar", "Rauniyar")); //Bishal Rauniyar
+
+//The replaceAll() method allows you to specify a regular expression instead of a string to be replaced.
+// If the parameter is a regular expression, the global flag (g) must be set, otherwise a TypeError is thrown.
+
+let text8 = "I love cats. Cats are very easy to love. Cats are very popular";
+text8 = text8.replaceAll(/Cats/g, "Dogs");
+text8 = text8.replaceAll(/cats/g, "dogs");
+console.log(text8);
+
+//A string can be converted to an array with the split() method:
+
+let text9 = "Bishal Rauniyar";
+console.log(text9.split(" "));
+//The indexOf() method returns the index (position) of the first occurrence of a string in a string, or it returns -1 if the string is not found:
+let text10 = "Bishal Rauniyar";
+console.log(text10.indexOf("Rauniyar")); //7
+console.log(text10.indexOf("Rauniyar", 8)); //-1 as the search starts from index 8

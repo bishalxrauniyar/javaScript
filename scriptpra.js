@@ -212,10 +212,76 @@ console.log(sentence);
 //The Number() method can be used to convert JavaScript variables to numbers:
 {
   // Use Number() when you need a more accurate representation of the value (e.g., floats) and the input is expected to be a valid number.
-  //Use parseInt() when you need to extract an integer, possibly from a string with mixed content or different bases.
   let x = "10";
   let y = "20.5";
   let z = x + y;
   console.log(z); //1020.5
   console.log(Number(x) + Number(y)); //30.5
+}
+
+//Use parseInt() when you need to extract an integer, possibly from a string with mixed content or different bases.
+{
+  let x = "10";
+  let y = "20.5";
+  let a = "    10.5";
+  let b = "10 years";
+  let c = "years 10";
+  let d = "years 10.5";
+  let z = x + y;
+  console.log(a); //10.5
+  console.log(parseInt(a)); //10
+  console.log(b); //10 years
+  console.log(parseInt(b)); //10
+  console.log(c); //years 10
+  console.log(parseInt(c)); //NaN
+  console.log(d); //years 10.5
+  console.log(parseInt(d)); //NaN
+
+  console.log(z); //1020.5
+  console.log(parseInt(x) + parseInt(y)); //30
+}
+
+// parseFloat() parses a string and returns a number. Spaces are allowed. Only the first number is returned:
+{
+  let x = "10";
+  let y = "20.5";
+  let a = "    10.5";
+  let b = "10 years";
+  let c = "years 10";
+  let d = "years 10.5";
+  let z = x + y;
+  console.log(a); //10.5
+  console.log(parseFloat(a)); //10.5
+  console.log(b); //10 years
+  console.log(parseFloat(b)); //10
+  console.log(c); //years 10
+  console.log(parseFloat(c)); //NaN
+  console.log(d); //years 10.5
+  console.log(parseFloat(d)); //NaN
+  console.log(z); //1020.5
+  console.log(parseFloat(x) + parseFloat(y)); //30.5
+}
+//Number Object Methods
+{
+  // Number.isInteger()	Returns true if the argument is an integer
+  // Number.isSafeInteger()	Returns true if the argument is a safe integer
+  // Number.parseFloat()	Converts a string to a number
+  // Number.parseInt()	Converts a string to a whole number
+  let x = 123;
+  let y = 123.5;
+  let z = 123.7;
+  console.log(Number.isInteger(y)); //false
+  console.log(Number.isSafeInteger(x)); //true
+  console.log(Number.isSafeInteger(y)); //false
+  console.log(Number.parseFloat(z)); //123.7
+  console.log(Number.parseInt(z)); //123
+}
+
+{
+  const person = [];
+  person[0] = "John";
+  person[1] = "Doe";
+  person[2] = 46;
+  console.log(person.length); // Will return 3
+  person[0]; // Will return "John"
 }

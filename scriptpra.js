@@ -320,3 +320,10 @@ console.log(sentence);
   fruits.unshift("Lemon");
   console.log(fruits); // ["Lemon", "Orange", "Apple", "Mango"]
 }
+
+//filter array element if greater than 18
+{
+  const ages = [32, 33, 16, 40];
+  const above18 = ages.filter((age) => age > 18);
+  console.log(above18);
+}

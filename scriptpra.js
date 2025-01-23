@@ -107,6 +107,59 @@ console.log(text8);
 let text9 = "Bishal Rauniyar";
 console.log(text9.split(" "));
 //The indexOf() method returns the index (position) of the first occurrence of a string in a string, or it returns -1 if the string is not found:
-let text10 = "Bishal Rauniyar";
+let text10 = "Bishal Rauniyar Rauniyar";
 console.log(text10.indexOf("Rauniyar")); //7
-console.log(text10.indexOf("Rauniyar", 8)); //-1 as the search starts from index 8
+console.log(text10.indexOf("Rauniyar", 17)); //-1 as the search starts from index 17
+console.log(text10.lastIndexOf("Rauniyar")); //16
+
+//match() method searches a string for a match against a regular expression, and returns the matches, as an Array object.
+let text11 = "The rain in SPAIN stays mainly in the plain";
+console.log(text11.match(/ain/g)); // [ 'ain', 'ain', 'ain' ](globle)
+console.log(text11.match(/ain/gi)); // [ 'ain', 'AIN', 'ain', 'ain' ] gi(globle and case insensitive)
+console.log(text11.match("ain"));
+
+//The matchAll() method returns an iterator containing the results of matching a string against a string (or a regular expression).\
+let text12 = "cats and dogs Dogs and Cats";
+console.log(...text12.matchAll(/cats/gi)); // global and case insensitive
+console.log(...text12.matchAll("cats"));
+console.log(...text12.matchAll(/cats/g)); // global
+
+//Template Strings use back-ticks (``)
+let name = "John";
+let age = 25;
+let sentence = `My name is ${name}. I am ${age} years old.`;
+console.log(sentence);
+{
+  let x = 0.2;
+  let y = 0.1;
+  let z = x + y;
+  console.log(z); //0.30000000000000004
+  console.log(z.toFixed(2)); //0.30
+  console.log(x * 10 + (y * 10) / 100); //0.3
+}
+// JavaScript uses the + operator for both addition and concatenation.
+// Numbers are added. Strings are concatenated.
+{
+  let x = 5 + 5;
+  let y = "5" + 5;
+  let z = "Hello" + 5;
+  console.log(x); //10
+  console.log(y); //55
+  console.log(z); //Hello5
+}
+//NaN is a JavaScript reserved word indicating that a number is not a legal number.
+
+{
+  let x = 100 / "Apple";
+  let y = 100 / "100";
+  let z = 100 / "10";
+  console.log(x); //NaN
+  console.log(y); //1
+  console.log(z); //10
+}
+//type of NaN is number
+{
+  let x = 100 / "Apple";
+  console.log(typeof x); //number
+  console.log(x);
+}

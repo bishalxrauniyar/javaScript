@@ -394,5 +394,26 @@
 
     <p>The result is</p>
     <p id="result"></p>
+
+    <h1>JavaScript Template Strings</h1>
+    <p>Templates allow variables in strings:</p>
+
+    <p id="demo"></p>
+
+    <p>Templates are not supported in Internet Explorer.</p>
+
+    <script>
+      let header = "Template Strings";
+      let tags = ["template strings", "javascript", "es6"];
+
+      let html = `<h2>${header}</h2><ul>`;
+
+      for (const x of tags) {
+        html += `<li>${x}</li>`;
+      }
+
+      html += `</ul>`;
+      document.getElementById("demo").innerHTML = html;
+    </script>
   </body>
 </html>

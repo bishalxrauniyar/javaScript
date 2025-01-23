@@ -202,3 +202,20 @@ console.log(sentence);
   console.log(x.toPrecision()); //9.656
   console.log(x.toPrecision(2)); //9.7 (rounds up)
 }
+//valueOf() returns a number as a number.
+{
+  let x = 123;
+  console.log(x.valueOf()); //123
+  console.log((123).valueOf()); //123
+  console.log((100 + 23).valueOf()); //123
+}
+//The Number() method can be used to convert JavaScript variables to numbers:
+{
+  // Use Number() when you need a more accurate representation of the value (e.g., floats) and the input is expected to be a valid number.
+  //Use parseInt() when you need to extract an integer, possibly from a string with mixed content or different bases.
+  let x = "10";
+  let y = "20.5";
+  let z = x + y;
+  console.log(z); //1020.5
+  console.log(Number(x) + Number(y)); //30.5
+}

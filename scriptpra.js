@@ -163,3 +163,42 @@ console.log(sentence);
   console.log(typeof x); //number
   console.log(x);
 }
+//Infinity is a number in JavaScript.
+{
+  let x = 2 / 0;
+  console.log(x); //Infinity
+  console.log(typeof x); //number
+}
+
+//The toString() method returns a number as a string.
+{
+  let x = 123;
+  console.log(x.toString());
+  console.log((123).toString());
+  console.log((100 + 23).toString());
+}
+// toExponential() returns a string, with a number rounded and written using exponential notation.
+{
+  let x = 9.656;
+  let y = 119;
+  console.log(x.toExponential()); //9.656e+0
+  console.log(x.toExponential(2)); //9.66e+0
+  console.log(y.toExponential(2)); //1.19e+2
+}
+
+//toFixed() returns a string, with the number written with a specified number of decimals:
+{
+  let x = 9.656;
+  let y = 119;
+  console.log(x.toFixed()); //10
+  console.log(x.toFixed(2)); //9.66
+  console.log(y.toFixed(2)); //119.00
+}
+
+//toPrecision() returns a string, with a number written with a specified length:
+{
+  let x = 9.656;
+
+  console.log(x.toPrecision()); //9.656
+  console.log(x.toPrecision(2)); //9.7 (rounds up)
+}

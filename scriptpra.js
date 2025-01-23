@@ -285,3 +285,38 @@ console.log(sentence);
   console.log(person.length); // Will return 3
   person[0]; // Will return "John"
 }
+//Using delete() leaves undefined holes in the array.
+// Use pop() or shift() instead.
+//The concat() method creates a new array by merging (concatenating) existing arrays:
+{
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  const vegetables = ["Carrot", "Potato", "Tomato", "Onion"];
+  const food = fruits.concat(vegetables);
+  console.log(food);
+  // The concat() method does not change the existing arrays. It always returns a new array.
+}
+
+//  arraySort();
+{
+  const cars = [
+    { type: "Volvo", year: 2016 },
+    { type: "Saab", year: 2001 },
+    { type: "BMW", year: 2010 },
+  ];
+  cars.sort(function (a, b) {
+    return a.year - b.year;
+  });
+  console.log(cars);
+}
+
+{
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  fruits.push("Kiwi");
+  console.log(fruits); // ["Banana", "Orange", "Apple", "Mango", "Kiwi"]
+  fruits.pop();
+  console.log(fruits); // ["Banana", "Orange", "Apple", "Mango"]
+  fruits.shift();
+  console.log(fruits); // ["Orange", "Apple", "Mango"]
+  fruits.unshift("Lemon");
+  console.log(fruits); // ["Lemon", "Orange", "Apple", "Mango"]
+}

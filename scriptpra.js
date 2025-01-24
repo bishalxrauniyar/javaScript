@@ -327,3 +327,31 @@ console.log(sentence);
   const above18 = ages.filter((age) => age > 18);
   console.log(above18);
 }
+
+function wordCount(input) {
+  // Step 1: Split the input into words (map phase)
+  const words = input
+    .split(/\s+/)
+    .map((word) => word.toLowerCase().replace(/[^\w]/g, ""));
+
+  // Step 2: Create a word frequency object (reduce phase)
+  const wordFrequency = words.reduce((acc, word) => {
+    if (word) {
+      // Ignore empty strings
+      acc[word] = (acc[word] || 0) + 1;
+    }
+    return acc;
+  }, {});
+
+  return wordFrequency;
+}
+
+// Example usage
+const text = `
+MapReduce is a programming model for processing and generating large datasets.
+It uses two main steps: Map and Reduce. The Map function performs filtering and sorting.
+The Reduce function aggregates the results.
+`;
+
+const result = wordCount(text);
+console.log(result);

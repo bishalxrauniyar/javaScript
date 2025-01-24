@@ -31,7 +31,7 @@
         color: black;
         padding: 12px 16px;
         text-decoration: none;
-        display: block;
+        display: block;  /* to display the dropdown in block */
       }
       .dropdown a:hover {
         background-color: #f1f1f1;
@@ -40,11 +40,11 @@
         display: block;
       }
       ul {
-        list-style-type: none; /* Removes bullets */
-        padding: 0; /* Removes default padding */
+        list-style-type: none;  
+        padding: 4px; 
       }
       li {
-        padding: 4px;
+        padding: 2px;
       }
       #myInput {
         width:auto;
@@ -100,12 +100,13 @@
         input = document.getElementById("myInput"); // Get the input field.
         filter = input.value.toUpperCase(); // Converts search text to uppercase for case-insensitive search.
         ul = document.getElementById("myUL"); // Get the unordered list.
+        console.log(ul); // Display the unordered list.
         li = ul.getElementsByTagName("li"); // Get the list items.
-
+        console.log(li); // Display the list items.
         for (i = 0; i < li.length; i++) { // Loop through all list items.
           a = li[i].getElementsByTagName("a")[0]; // Get the first anchor element.
-          txtValue = a.textContent || a.innerText; // Get the text content of the link.
-
+          // console.log(a); display the anchor element
+          txtValue = a.textContent || a.innerText; // Get the text content of the link
           if (txtValue.toUpperCase().indexOf(filter) > -1) { // If the search text is found in the list item.
             li[i].style.display = ""; // Show matching items.
           } else {

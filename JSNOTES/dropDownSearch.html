@@ -60,7 +60,8 @@
       Click on the button to open dropdown menu and use the input filed to
       search through the dropdown
     </p>
-
+    <p id="demo"></p>
+    <br>
     <div class="dropdown">
       <button class="dropbtn">Dropdown</button>
       <div class="dropdown-content">
@@ -84,26 +85,28 @@
     </div>
 
     <script>
+      document.write("Click Me!");
+      document.getElementById("demo").innerHTML = "Date : " + Date();
       const dropbtn = document.querySelector(".dropbtn");
       const dropdown = document.querySelector(".dropdown");
       const dropdownContent = document.querySelector(".dropdown-content");
-
+//to toggle the dropdown
       dropbtn.addEventListener("click", () => {
         dropdownContent.classList.toggle("show");
       });
-
+//to search the dropdown
       function mySearch() {
         var input, filter, textArea, a, i;
-        input = document.getElementById("myInput");
+        input = document.getElementById("myInput"); // Get the input field.
         filter = input.value.toUpperCase(); // Converts search text to uppercase for case-insensitive search.
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
+        ul = document.getElementById("myUL"); // Get the unordered list.
+        li = ul.getElementsByTagName("li"); // Get the list items.
 
-        for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
+        for (i = 0; i < li.length; i++) { // Loop through all list items.
+          a = li[i].getElementsByTagName("a")[0]; // Get the first anchor element.
           txtValue = a.textContent || a.innerText; // Get the text content of the link.
 
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          if (txtValue.toUpperCase().indexOf(filter) > -1) { // If the search text is found in the list item.
             li[i].style.display = ""; // Show matching items.
           } else {
             li[i].style.display = "none"; // Hide non-matching items.

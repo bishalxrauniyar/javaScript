@@ -328,6 +328,7 @@ console.log(sentence);
   console.log(above18);
 }
 
+// wordcount using map and reduce
 function wordCount(input) {
   // Step 1: Split the input into words (map phase)
   const words = input

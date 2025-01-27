@@ -332,14 +332,14 @@ console.log(sentence);
 function wordCount(input) {
   // Step 1: Split the input into words (map phase)
   const words = input
-    .split(/\s+/)
-    .map((word) => word.toLowerCase().replace(/[^\w]/g, ""));
+    .split(/\s+/) // Split by one or more spaces
+    .map((word) => word.toLowerCase().replace(/[^\w]/g, "")); // Remove non-word characters
 
   // Step 2: Create a word frequency object (reduce phase)
   const wordFrequency = words.reduce((acc, word) => {
     if (word) {
       // Ignore empty strings
-      acc[word] = (acc[word] || 0) + 1;
+      acc[word] = (acc[word] || 0) + 1; // Increment the word count
     }
     return acc;
   }, {});

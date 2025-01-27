@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather APP</title>
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Weather APP</h1>
@@ -23,27 +22,56 @@
       const apiKey = "7dd1c7ebb9178ed52fdae3e2bb2ab396";
 
       function getWeatherByLocation() {
-        navigator.geolocation.getCurrentPosition((position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            try {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
 
-          fetch(`${apiUrl}&lat=${lat}&lon=${lon}&appid=${apiKey}`)
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-              document.querySelector(".location").innerHTML = data.name;
-              document.querySelector(".temp").innerHTML = data.main.temp + "°C";
-              document.querySelector("#weather").innerHTML =
-                data.weather[0].main;
-              document.querySelector(".humidity").innerHTML =
-                data.main.humidity + "%";
-              document.querySelector(".windspeed").innerHTML =
-                data.wind.speed + " km/H";
-            });
-        });
+              fetch(`${apiUrl}&lat=${lat}&lon=${lon}&appid=${apiKey}`)
+                .then((response) => response.json())
+                .then(
+                  (data) => {
+                    console.log(data);
+                    document.querySelector(".location").innerHTML = data.name;
+                    document.querySelector(".temp").innerHTML =
+                      data.main.temp + "°C";
+                    document.querySelector("#weather").innerHTML =
+                      data.weather[0].main;
+                    document.querySelector(".humidity").innerHTML =
+                      data.main.humidity + "%";
+                    document.querySelector(".windspeed").innerHTML =
+                      data.wind.speed + " km/H";
+                  },
+                  (error) => {
+                    console.log(error);
+                    document.querySelector(".error").innerHTML =
+                      "Unable to retrieve your location";
+                  }
+                );
+            } catch (error) {
+              console.log(error);
+              document.querySelector(".error").innerHTML =
+                "Please allow location";
+            }
+          },
+          (error) => {
+            console.log(error);
+            document.querySelector(".error").innerHTML =
+              "Unable to retrieve your location";
+          }
+        );
       }
 
       getWeatherByLocation();
+
+      window.onload = function () {
+        if (navigator.geolocation === undefined) {
+          document.querySelector(".error").innerHTML =
+            "Geolocation is not supported by your browser";
+          return;
+        }
+      };
     </script>
   </body>
 </html>

@@ -33,7 +33,8 @@
                 .then(
                   (data) => {
                     console.log(data);
-                    document.querySelector(".location").innerHTML = data.name;
+                    document.querySelector(".location").innerHTML = 
+                    data.name;
                     document.querySelector(".temp").innerHTML =
                       data.main.temp + "°C";
                     document.querySelector("#weather").innerHTML =

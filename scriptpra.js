@@ -356,3 +356,35 @@ The Reduce function aggregates the results.
 
 const result = wordCount(text);
 console.log(result);
+
+function search(nums, target) {
+  var nums = [-1, 0, 3, 5, 9, 12];
+  var target = 9;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) {
+      return i;
+    }
+  }
+  return -1;
+}
+console.log(search()); //4
+
+//binary search
+function search(nums, target) {
+  var nums = [-1, 0, 3, 5, 9, 12];
+  var target = 9;
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+}
+console.log(search()); //4

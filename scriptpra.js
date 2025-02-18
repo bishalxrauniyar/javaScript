@@ -431,3 +431,10 @@ console.log(search()); //4
   const sqrtRoot = numbers.map((x) => Math.sqrt(x));
   console.log(sqrtRoot);
 }
+
+//The reduce() method reduces the array to a single value.
+{
+  const numbers = [65, 44, 12, 4];
+  const sum = numbers.reduce((total, num) => total + num);
+  console.log(sum);
+}

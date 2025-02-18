@@ -409,3 +409,10 @@ console.log(search()); //4
   const above18 = ages.every((age) => age > 18);
   console.log(above18);
 }
+
+//The some() method checks if any of the elements in an array pass a test (provided as a function).
+{
+  const ages = [32, 33, 16, 40];
+  const above18 = ages.some((age) => age > 18);
+  console.log(above18);
+}

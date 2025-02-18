@@ -388,3 +388,10 @@ function search(nums, target) {
   return -1;
 }
 console.log(search()); //4
+
+//The find() method returns the value of the first element in an array that pass a test (provided as a function).
+{
+  const ages = [3, 10, 18, 20];
+  const above18 = ages.find((age) => age > 18);
+  console.log(above18);
+}

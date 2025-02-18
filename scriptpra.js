@@ -438,3 +438,10 @@ console.log(search()); //4
   const sum = numbers.reduce((total, num) => total + num);
   console.log(sum);
 }
+
+//The reduceRight() method reduces the array to a single value (going right-to-left).
+{
+  const numbers = [65, 44, 12, 4];
+  const sum = numbers.reduceRight((total, num) => total + num);
+  console.log(sum);
+}

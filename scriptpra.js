@@ -424,3 +424,10 @@ console.log(search()); //4
     console.log(item, index);
   });
 }
+
+//The map() method creates a new array by performing a function on each array element.
+{
+  const numbers = [4, 9, 16, 25];
+  const sqrtRoot = numbers.map((x) => Math.sqrt(x));
+  console.log(sqrtRoot);
+}

@@ -395,3 +395,10 @@ console.log(search()); //4
   const above18 = ages.find((age) => age > 18);
   console.log(above18);
 }
+
+//The findIndex() method returns the index of the first element in an array that pass a test (provided as a function).
+{
+  const ages = [3, 10, 18, 20];
+  const above18 = ages.findIndex((age) => age > 18);
+  console.log(above18);
+}

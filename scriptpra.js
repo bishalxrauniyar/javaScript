@@ -416,3 +416,11 @@ console.log(search()); //4
   const above18 = ages.some((age) => age > 18);
   console.log(above18);
 }
+
+//The forEach() method calls a function once for each element in an array, in order.
+{
+  const fruits = ["apple", "orange", "cherry"];
+  fruits.forEach((item, index) => {
+    console.log(item, index);
+  });
+}

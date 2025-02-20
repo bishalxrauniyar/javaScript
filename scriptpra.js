@@ -445,3 +445,15 @@ console.log(search()); //4
   const sum = numbers.reduceRight((total, num) => total + num);
   console.log(sum);
 }
+
+//Write a JavaScript program to determine if two arrays of integers of the same length are similar. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.
+
+function isSimilar(arr1, arr2) {
+  let diff = 0;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      diff++;
+    }
+  }
+  return diff <= 2;
+}

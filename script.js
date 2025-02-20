@@ -965,7 +965,7 @@ function contains13(nums) {
 // Example usage of the contains13 function
 console.log(contains13([1, 5])); // Should return true, as 1 is present
 console.log(contains13([2, 3])); // Should return true, as 3 is present
-console.log(contains13([7, 5])); // Should return false, as neither 1 nor 3 is present
+console.log(contains13([7, 5])); // Should return false, as neither 1 nor 3 is present.
 
 //program to test whether an array of integers of length 2 does not contain 1 or 3.
 // 1st approach

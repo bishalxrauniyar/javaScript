@@ -1072,6 +1072,7 @@ function addWithoutCarrying(a, b) {
 console.log(addWithoutCarrying(123, 456)); // 579
 console.log(addWithoutCarrying(555, 555)); // 000
 console.log(addWithoutCarrying(123, 789)); // 802
+console.log(addWithoutCarrying(999, 1222)); // 333
 
 // JavaScript program to replace each character in a given string with the next in the English alphabet.
 // Note: 'a' will be replace by 'b' or 'z' would be replaced by 'a'.
@@ -1219,17 +1220,41 @@ console.log(sumOfDifferences([10, 20, 30, 40, 50])); // 40
 
 //JavaScript program to find the shortest possible string. This can be converted into a string and converted into a palindrome by adding characters to the end of it.
 function shortestPalindrome(str) {
-  for (let i = 0; i < str.length; i++) {
-    if (
-      str.slice(0, str.length - i) === str.slice(i).split("").reverse().join("")
-    ) {
-      return str.slice(0, i).split("").reverse().join("") + str;
+  for (let i = str.length; i >= 0; i--) {
+    let prefix = str.substring(0, i);
+    let reversedPrefix = prefix.split("").reverse().join("");
+
+    if (prefix === reversedPrefix) {
+      let suffix = str.substring(i);
+      return suffix.split("").reverse().join("") + str;
     }
   }
+  return str; // Fallback (shouldn't be needed)
 }
-console.log(shortestPalindrome("abcde")); // "edcbabcde"
-console.log(shortestPalindrome("bishal")); // "lahsibishal".
 
+console.log(shortestPalindrome("abcde")); // "edcbabcde"
+console.log(shortestPalindrome("bishal")); // "lahsibishal"
+console.log(shortestPalindrome("122")); // "22122"
+console.log(shortestPalindrome("race")); // "ecarace"
+console.log(shortestPalindrome("aacecaaa")); // "aacecaaa"
+
+// method 2
+function shortestPalindrome(str) {
+  for (let i = str.length; i >= 0; i--) {
+    let prefix = str.substring(0, i);
+    let reversedPrefix = prefix.split("").reverse().join("");
+
+    if (prefix === reversedPrefix) {
+      let suffix = str.substring(i);
+      return suffix.split("").reverse().join("") + str;
+    }
+  }
+  return str; // Fallback (shouldn't be needed)
+}
+
+console.log(shortestPalindrome("abcde")); // "edcbabcde"
+console.log(shortestPalindrome("bishal")); // "lahsibishal"
+console.log(shortestPalindrome("122")); // "22122"
 //JavaScript program to change the case of the minimum number of letters to make a given string written in upper case or lower case.
 // Fox example "Write" will be write and "PHp" will be "PHP"
 

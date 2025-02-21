@@ -471,14 +471,3 @@ function maxNumber(num) {
   }
   return max;
 }
-
-//2nd method
-function maxNumber(num) {
-  let numStr = num.toString();
-  let max = 0;
-  for (let i = 0; i < numStr.length; i++) {
-    let newNum = numStr.slice(0, i) + numStr.slice(i + 1);
-    max = Math.max(max, newNum);
-  }
-  return max;
-}

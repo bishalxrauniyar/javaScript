@@ -460,3 +460,25 @@ function isSimilar(arr1, arr2) {
 console.log(isSimilar([1, 2, 3], [1, 2, 3])); //true
 
 console.log(isSimilar([1, 2, 3], [1, 2, 4, 5])); //false
+
+//Find the maximum number from a given positive integer by deleting exactly one digit of the given number
+function maxNumber(num) {
+  let numStr = num.toString();
+  let max = 0;
+  for (let i = 0; i < numStr.length; i++) {
+    let newNum = numStr.slice(0, i) + numStr.slice(i + 1);
+    max = Math.max(max, newNum);
+  }
+  return max;
+}
+
+//2nd method
+function maxNumber(num) {
+  let numStr = num.toString();
+  let max = 0;
+  for (let i = 0; i < numStr.length; i++) {
+    let newNum = numStr.slice(0, i) + numStr.slice(i + 1);
+    max = Math.max(max, newNum);
+  }
+  return max;
+}

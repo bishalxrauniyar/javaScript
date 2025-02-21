@@ -458,7 +458,8 @@ function isSimilar(arr1, arr2) {
   return diff <= 2;
 }
 console.log(isSimilar([1, 2, 3], [1, 2, 3])); //true
-
+console.log(isSimilar([1, 2, 3], [2, 1, 3])); //true
+console.log(isSimilar([1, 2, 3], [2, 1, 4])); //false
 console.log(isSimilar([1, 2, 3], [1, 2, 4, 5])); //false
 
 //Find the maximum number from a given positive integer by deleting exactly one digit of the given number

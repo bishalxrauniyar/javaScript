@@ -1,6 +1,6 @@
 JavaScript Practice 2024
 Html
-777777778
+77777777
 The title attribute defines some extra information about an element.
 The value of the title attribute will be displayed as a tooltip when you mouse over the element:
 

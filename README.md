@@ -1,4 +1,4 @@
-1JavaScript Practice 2024
+JavaScript Practice 2024
 Html
 
 The title attribute defines some extra information about an element.

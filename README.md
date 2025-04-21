@@ -1,6 +1,5 @@
 #JavaScript Practice 2024
 Html
-
 The title attribute defines some extra information about an element.
 The value of the title attribute will be displayed as a tooltip when you mouse over the element:
 

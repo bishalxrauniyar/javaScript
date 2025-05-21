@@ -130,3 +130,60 @@ session_start();
 
 }
 add_shortcode('city_name', 'show_custom_location_by_ip');
+
+with sessions
+
+function show_custom_location_by_ip() {
+if (!session_id()) {
+session_start();
+}
+
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $options = get_option('custom_contact_settings', [
+        'locations' => [],
+        'default_location' => ''
+    ]);
+
+    // If session exists and IP matches, return stored location name
+    if (isset($_SESSION['user_ip']) && $_SESSION['user_ip'] === $ip && isset($_SESSION['user_location_name'])) {
+        return esc_html($_SESSION['user_location_name']);
+    }
+
+    // Fetch IP location using Abstract API
+    $api_key = '676faf4b9ee34dd38924ac579a7f8323';
+    $url = "https://ipgeolocation.abstractapi.com/v1/?api_key={$api_key}&ip_address={$ip}";
+
+    $response = @file_get_contents($url);
+    if ($response) {
+        $data = json_decode($response);
+        if (!empty($data->country_code) && $data->country_code === 'US') {
+            $city = $data->city;
+            // Check if city exists in stored locations
+            foreach ($options['locations'] as $location) {
+                if (strcasecmp($location['name'], $city) === 0) {
+                    // Save in session
+                    $_SESSION['user_ip'] = $ip;
+                    $_SESSION['user_location_name'] = $location['name'];
+                    return esc_html($location['name']);
+                }
+            }
+        }
+    }
+
+    // Fall back to default location
+    if (!empty($options['default_location'])) {
+        foreach ($options['locations'] as $location) {
+            if ($location['name'] === $options['default_location']) {
+                $_SESSION['user_ip'] = $ip;
+                $_SESSION['user_location_name'] = $location['name'];
+                return esc_html($location['name']);
+            }
+        }
+    }
+
+    $_SESSION['user_ip'] = $ip;
+    $_SESSION['user_location_name'] = $options['default_location'];
+    return esc_html($options['default_location']);
+
+}
+add_shortcode('city_name', 'show_custom_location_by_ip');
